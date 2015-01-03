@@ -1,0 +1,72 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.8,vscale=0.8,centering}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel} % Exposant
+
+
+\usepackage{enumerate} % Listes
+\usepackage{amsmath} % Matrices
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{color}
+
+\usepackage{listings} % Lecture du code
+\usepackage{hyperref} % Hyperlien
+
+
+% Mise en page spéciale fancyhdr pour les en-têtes
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{} % Rien en haut de page au milieu
+\fancyhead[L]{\leftmark} % Nom du chapitre actuel en haut de page à gauche
+\fancyhead[R]{\thepage} % Numéro de page en haut de page à droite
+
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{} % Rien en bas de page au milieu
+\fancyfoot[L]{Open source pour ajout ou modification: https://github.com/Rodriguevb/GEOGF106-Societe\_et\_environnement-Resume/} % Numéro de page en bas de page à gauche
+\fancyfoot[R]{\thepage} % Numéro de page en bas de page à droite
+\setlength{\headheight}{12.1638pt}
+
+
+\author{Rodrigue \textsc{Van Brande}} % Auteur
+\date{\today} % Date de compilation du pdf
+
+\pdfinfo{
+    /Author   (Rodrigue VAN BRANDE)
+    /Creator  (https://github.com/Rodriguevb/GEOGF106-Societe_et_environnement-Resume/)
+}
+
+%Création d'un subsub...section (avec \paragraph{} \subparagraph{})
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+
+%\newcommand{\fonction}[nb de parametre]{définition de la commande}
+\newcommand{\guillemets}[1]{\og #1 \fg} % citation entre guillemets
+\newcommand{\gras}[1]{\textbf{#1}} %met en gras
+\newcommand{\italique}[1]{\textit{#1}} %met en italique
+
+% Titre du PDF
+\title{GEOG-F-106 - Société et environnement\\Jean-Michel \textsc{Decroly}\\Frank \textsc{Pattyn}\\Résumé du cours}
+
+\pdfinfo{
+/Title(GEOG-F-106 - Société et environnement - Résumé du cours)
+}
+
+%Profondeur pour la table des matières dans les titres
+\setcounter{tocdepth}{5}
+
+\begin{document}
+    \maketitle       % Titre
+    \newpage         % Saut de page
+    \tableofcontents % table des matières / Besoin d'une double compilation
+    \newpage         % Saut de page
+
+    \input{1.lois/text}
+    
+\end{document}
