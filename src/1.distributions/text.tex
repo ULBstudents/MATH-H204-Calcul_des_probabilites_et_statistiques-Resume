@@ -1,0 +1,41 @@
+\section{Distributions}
+
+
+\newcommand{\createTabularLoi}[3]{
+\begin{tabular}{|c|c|}
+
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Distribution \textsc{#1}}}\\
+    \hline
+    \includegraphics[width=0.45\textwidth]{#2}&\includegraphics[width=0.45\textwidth]{#3}\\
+    Densité de probabilité & Fonction de répartition\\
+    \hline
+
+\end{tabular}}
+
+\begin{center}
+    
+    \createTabularLoi{Binomiale $B(n,p)$}{1.distributions/binomial_probability_density_function.pdf}{1.distributions/binomial_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Poisson $P_\lambda$}{1.distributions/poisson_probability_density_function.pdf}{1.distributions/poisson_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Exponentielle $Exp_\lambda$}{1.distributions/exponential_probability_density_function.pdf}{1.distributions/exponential_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Indicatrice $V_p$}{1.distributions/indicatrice_probability_density_function.pdf}{1.distributions/indicatrice_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Uniforme $U[a,b]$}{1.distributions/uniform_probability_density_function.pdf}{1.distributions/uniform_cumulative_distribution_function.pdf}
+    %Ajouter les sources mais attention, les note de bas de page bug avec les tabulars
+    %{"Uniform Distribution PDF SVG" by IkamusumeFan - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - \href{http://commons.wikimedia.org/wiki/File:Uniform_Distribution_PDF_SVG.svg\#mediaviewer/File:Uniform_Distribution_PDF_SVG.svg}{http://commons.wikimedia.org}}{"Uniform cdf" by IkamusumeFan - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - \href{http://commons.wikimedia.org/wiki/File:Uniform_cdf.svg\#mediaviewer/File:Uniform_cdf.svg}{http://commons.wikimedia.org}}
+
+    \createTabularLoi{Normale $N(\mu,\sigma)$}{1.distributions/normal_probability_density_function.pdf}{1.distributions/normal_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Khi carré $\chi^2$}{1.distributions/chi-square_probability_density_function.pdf}{1.distributions/chi-square_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Student $t_n$}{1.distributions/student_probability_density_function.pdf}{1.distributions/student_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Fisher-Snedecor $F_{m,n}$}{1.distributions/f_probability_density_function.pdf}{1.distributions/f_cumulative_distribution_function.pdf}
+    
+    
+\end{center}
+
+
