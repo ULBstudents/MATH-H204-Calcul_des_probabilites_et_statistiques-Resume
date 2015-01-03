@@ -1,1 +1,29 @@
 \section{Lois}
+
+
+\newcommand{\createTabularLoi}[3]{
+\begin{tabular}{|c|c|}
+
+    \hline
+    \multicolumn{2}{|c|}{#1}\\
+    \hline
+    \includegraphics[width=0.45\textwidth]{#2}&\includegraphics[width=0.45\textwidth]{#3}\\
+    Densité de probabilité & Fonction de répartition\\
+    \hline
+
+\end{tabular}}
+
+\begin{center}
+    \createTabularLoi{Loi Uniforme}{1.lois/uniform_probability_density_function.pdf}{1.lois/uniform_cumulative_distribution_function.pdf}
+    %Ajouter les sources mais attention, les note de bas de page bug avec les tabulars
+    %{"Uniform Distribution PDF SVG" by IkamusumeFan - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - \href{http://commons.wikimedia.org/wiki/File:Uniform_Distribution_PDF_SVG.svg\#mediaviewer/File:Uniform_Distribution_PDF_SVG.svg}{http://commons.wikimedia.org}}{"Uniform cdf" by IkamusumeFan - Own work. Licensed under CC BY-SA 3.0 via Wikimedia Commons - \href{http://commons.wikimedia.org/wiki/File:Uniform_cdf.svg\#mediaviewer/File:Uniform_cdf.svg}{http://commons.wikimedia.org}}
+
+    \createTabularLoi{Loi Normal}{1.lois/normal_probability_density_function.pdf}{1.lois/normal_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Loi Poisson}{1.lois/poisson_probability_density_function.pdf}{1.lois/poisson_cumulative_distribution_function.pdf}
+    
+    \createTabularLoi{Loi Student}{1.lois/student_probability_density_function.pdf}{1.lois/student_cumulative_distribution_function.pdf}
+    
+\end{center}
+
+
