@@ -1,0 +1,54 @@
+\subsection{Densité et répartition}
+
+\begin{center}
+\begin{tabular}{|l|c|c|}
+
+    \hline
+                              & Fonction de densité $f(x)$                                   & Fonction de répartition $F(x)$\\
+    \hline
+    $\mathcal{B}(n,p)$        & $ P[B(n,p)=k]$                                               & $\sum_{k=0}^{x}P[B(n,p)=k]$\\
+    \hline
+    $\mathcal{P}_\lambda$     & $ P[\mathcal{P}_\lambda=k]=\frac{\lambda^k}{k!}e^{-\lambda}$ & $\sum_{k=0}^{x}P[\mathcal{P}_\lambda=k]$\\
+    \hline
+    Exp$_\lambda$             & $\begin{cases}
+                                    \lambda e^{-\lambda x}& x\geq0\\
+                                    0& x < 0
+                                     \end{cases}$                                            & $\begin{cases}
+                                                                                                  1-e^{-\lambda x}& x\geq0\\
+                                                                                                  0& x < 0
+                                                                                                \end{cases}$\\
+    \hline
+    Indicatrice($p$)          & $V_A\Rightarrow\begin{cases}
+                                    P(V_A=1)=p\\
+                                    P(V_A=0)=1-p
+                                 \end{cases}$                                                & $\begin{cases}
+                                                                                                  0&x<0\\
+                                                                                                  1-p&0\leq x<1\\
+                                                                                                  1&x\geq1
+                                                                                                \end{cases}$\\
+    \hline
+    Uniforme[$a$,$b$]         & $\begin{cases}
+                                    \frac{1}{b-a}&a\leq x\leq b\\
+                                    0&sinon
+                                 \end{cases}$                                                & $\begin{cases}
+                                                                                                  0&x< a\\
+                                                                                                  \frac{x-a}{b-a}&a\leq x< b\\
+                                                                                                  1&x>b
+                                                                                                \end{cases}$\\
+    \hline
+    $\mathcal{N}(\mu,\sigma)$ & $\frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}}$            & $\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^xe^{\frac{(u-\mu)^2}{2\sigma^2}}du$\\
+    \hline
+    $\chi^2_{(n)}$            & $\begin{cases}
+                                    \frac{1}{\sqrt{2\pi}}e^{\frac{x^2}{2}}&x>0\\
+                                    0&x\leq0
+                                 \end{cases}$                                                & $\frac{1}{\sqrt{2\pi}}\int_0^xe^{\frac{x^2}{2}}du$\\
+    \hline
+    $t_n$                     & Densité indépendante de $\sigma$                             & \\
+    \hline
+    $\mathcal{F}_{(m,n)}$     & Densité indépendante de $\sigma$                             & \\
+    \hline
+
+\end{tabular}
+\end{center}
+
+
