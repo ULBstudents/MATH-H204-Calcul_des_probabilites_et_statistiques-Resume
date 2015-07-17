@@ -12,14 +12,14 @@
 \usepackage[french]{babel} % Exposant
 
 \usepackage{enumerate} % Listes
-\usepackage{amsmath} % Matrices
+\usepackage{amsmath,amsfonts,amssymb} % Matrices, Align
 \usepackage{graphicx}
-\usepackage{amssymb}
 \usepackage{ulem}
 \usepackage{listings} % Lecture du code
 \usepackage{hyperref} % Hyperlien
 \usepackage{color} % Couleurs
 \usepackage[table]{xcolor} % Couleurs dans les tableaux
+\usepackage{titlesec}
 
 \input{pdfinfo}
 
@@ -54,6 +54,12 @@
 %Création d'un subsub...section (avec \paragraph{} \subparagraph{})
 \setcounter{secnumdepth}{5}
 \setcounter{tocdepth}{5}
+
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 
 \begin{document}
