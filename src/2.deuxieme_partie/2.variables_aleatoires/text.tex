@@ -1,35 +1,69 @@
 \subsection{Variables aléatoires}
 
+
+
+\subsubsection{Opérations sur les variables aléatoires}
+
+
+
 \paragraph{Distribution d'une fonction monotone d'une variable aléatoire}
-\begin{center}
-\begin{tabular}{lll}
+$$\boxed{W = G(V)}$$
 
-    $W$        & $=$ & $G(V)$ \\
-    
-\end{tabular}
-\end{center}
+
+
 \paragraph{Distribution de la somme de deux variables aléatoires}
-\begin{center}
-\begin{tabular}{lll}
+$$\boxed{Z = V+W}$$
 
-    $Z$        & $=$ & $V+W$ \\
-    
-\end{tabular}
-\end{center}
-\paragraph{Distribution de la différence de deux variables aléatoires}
-\begin{center}
-\begin{tabular}{lll}
 
-    $Z$        & $=$ & $V-W$ \\
-    
+
+\subparagraph{Cas discret}
+\begin{align*}
+    F_Z(x) &= \sum_i\sum_jp_{ij}\\
+           &= \sum_i\sum_jP(V \leq v_i,W \leq w_i)
+\end{align*}
+
+
+
+\subparagraph{Cas continu}
+\begin{align*}
+    F_Z(x)     &= P(Z \leq x)\\
+    F_{V+W}(x) &= P(V \leq x, W \leq x) \\
+	           &= \iint\limits_{\xi + \eta\leq x} f_{(V,W)}(\xi,\eta)\ \delta\xi\ \delta\eta\\
+\intertext{On remplace par $\left\{
+\begin{tabular}{cl}
+	$\xi$  & $= u$\\[0.2cm]
+	$\eta$ & $= v-u$\\[0.2cm]
+	$J$    & $= \left(\begin{tabular}{cc}$\dfrac{\delta\xi}{\delta u}$&$\dfrac{\delta \xi}{\delta v}$\\[0.5cm]$\dfrac{\delta\eta}{\delta u}$&$\dfrac{\delta\eta}{\delta v}$\end{tabular}\right) = \left(\begin{tabular}{cc}1&0\\[0.2cm]$-1$&$1$\end{tabular}\right) = 1.1-0.(-1) = 1$
 \end{tabular}
-\end{center}
+\right.$}
+	           &= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\left|1\right|\ \delta u\ \delta v\\
+               &= \int\limits_{-\infty}^x\delta v \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ \delta u
+\end{align*}
+
+$$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,x-u)\ \delta u }$$
+ou si indépendant
+$$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_V\left(u\right).\ f_W\left(x-u\right)\ \delta u }$$
+
+
 \paragraph{Distribution du produit de deux variables aléatoires}
-\begin{center}
-\begin{tabular}{lll}
+$$\boxed{Z = VW}$$
 
-    $Z$        & $=$ & $VW$ \\
-    $F_Z(x)$ & $=$ & $\iint\limits_{\xi.\eta\leq x} f_{(V,W)}(\xi,\eta)d\xi d\eta$\\
-    
+\subparagraph{Cas continu}
+\begin{align*}
+    F_Z(x)     &= P(Z \leq x)\\
+    F_{V.W}(x) &= P(V \leq x, W \leq x) \\
+	           &= \iint\limits_{\xi . \eta\leq x} f_{(V,W)}(\xi,\eta)\ \delta\xi\ \delta\eta\\
+\intertext{On remplace par $\left\{
+\begin{tabular}{cl}
+	$\xi$  & $= u$\\[0.2cm]
+	$\eta$ & $= \dfrac{v}{u}$\\[0.2cm]
+	$J$    & $= \left(\begin{tabular}{cc}$\dfrac{\delta\xi}{\delta u}$&$\dfrac{\delta \xi}{\delta v}$\\[0.5cm]$\dfrac{\delta\eta}{\delta u}$&$\dfrac{\delta\eta}{\delta v}$\end{tabular}\right) = \left(\begin{tabular}{cc}1&0\\[0.2cm]$\dfrac{-1}{u^2}$&$\dfrac{1}{u}$\end{tabular}\right) = 1.\dfrac{1}{u} - 0.\dfrac{-1}{u^2} = \dfrac{1}{u}$
 \end{tabular}
-\end{center}
+\right.$}
+	           &= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\ \delta u\ \delta v\\
+               &= \int\limits_{-\infty}^x\delta v \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ \delta u
+\end{align*}
+
+$$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_{(V,W)}\left(u,\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ \delta u }$$
+ou si indépendant
+$$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_V\left(u\right).\ f_W\left(\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ \delta u }$$
