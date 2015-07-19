@@ -1,11 +1,7 @@
 \subsection{Variables aléatoires}
 
 
-
-\subsubsection{Opérations sur les variables aléatoires}
-
-
-\paragraph{Distribution d'une fonction monotone d'une variable aléatoire}
+\subsubsection{Distribution d'une fonction monotone d'une variable aléatoire}
 $$\boxed{W = G(V)}$$
 
 \begin{center}
@@ -22,13 +18,13 @@ $$\boxed{W = G(V)}$$
 
 
 
-
-\paragraph{Distribution de la somme de deux variables aléatoires}
+\newpage
+\subsubsection{Distribution de la somme de deux variables aléatoires}
 $$\boxed{Z = V+W}$$
 
 
 
-\subparagraph{Cas discret}
+\paragraph{Cas discret}
 \begin{align*}
     F_Z(x) &= \sum_i\sum_jp_{ij}\\
            &= \sum_i\sum_jP(V \leq v_i,W \leq w_i)
@@ -36,7 +32,7 @@ $$\boxed{Z = V+W}$$
 
 
 
-\subparagraph{Cas continu}
+\paragraph{Cas continu}
 \begin{align*}
 	F_Z(x)     &= P(Z \leq x)\\
 	F_{V+W}(x) &= P(V \leq x, W \leq x) \\
@@ -57,10 +53,12 @@ ou si indépendant
 $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_V\left(u\right).\ f_W\left(x-u\right)\ \delta u }$$
 
 
-\paragraph{Distribution du produit de deux variables aléatoires}
+
+\newpage
+\subsubsection{Distribution du produit de deux variables aléatoires}
 $$\boxed{Z = VW}$$
 
-\subparagraph{Cas continu}
+\paragraph{Cas continu}
 \begin{align*}
 	F_Z(x)     &= P(Z \leq x)\\
 	F_{V.W}(x) &= P(V \leq x, W \leq x) \\
