@@ -1,0 +1,18 @@
+\subsection{Intervalles de confiance et tests d'hypothèses}
+
+\subsubsection{Comparaison des moyennes de deux populations normales de même écart-type $\sigma$ inconnu}
+Les deux moyennes des deux populations :
+$$\bar{X}_1 \sim N \left( \mu_1, \dfrac{\sigma}{\sqrt{n_1}} \right)$$
+$$\bar{X}_2 \sim N \left( \mu_2, \dfrac{\sigma}{\sqrt{n_2}} \right)$$
+On les soustrait :
+\begin{align*}
+\bar{X}_1 - \bar{X}_2 &= N \left( \mu_1 - \mu_2, \dfrac{\sigma}{\sqrt{n_1}} - \dfrac{\sigma}{\sqrt{n_2}} \right)\\
+                      &= N \left( \mu_1 - \mu_2, \dfrac{\sigma\sqrt{n_2} - \sigma\sqrt{n_1}}{\sqrt{n_1}\sqrt{n_2}} \right)\\
+                      &= N \left( \mu_1 - \mu_2, \sigma\dfrac{\sqrt{n_2} - \sqrt{n_1}}{\sqrt{n_1}\sqrt{n_2}} \right)\\
+                      &= N \left( \mu_1 - \mu_2, \sigma\sqrt{\dfrac{n_1 + n_2}{n_1 n_2}} \right)\\
+\end{align*}
+
+\begin{align*}
+t_{n_1-1+n_2-1} &\sim \underbrace{\dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}}}_{\displaystyle N(0,1)} \underbrace{\dfrac{1}{\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}_{\displaystyle\chi_{n_1-1+n_2-1}^2}\\
+   &\sim \dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}
+\end{align*}

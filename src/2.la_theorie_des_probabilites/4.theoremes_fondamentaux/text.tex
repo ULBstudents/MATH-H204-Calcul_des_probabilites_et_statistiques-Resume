@@ -57,30 +57,42 @@ $$V = X_1\ ,\ X_2\ ,\ X_3\ ,\ \dots\ ,\ X_n$$
 alors sa variable réduite $\dfrac{V-\mu}{\sigma}$ tend vers une gausienne $N(0,1)$ lorsque $n\rightarrow\infty$.
 $$\boxed{\dfrac{V-E(V)}{D(V)} = \dfrac{V-\mu}{\sigma} \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)}$$
 \paragraph{Démonstration}
-On pose d'abord les calculs de l'espérance et de la variance de la somme $V$ et pour un de ses éléments $V_i$ :
+On pose d'abord les calculs de l'espérance et de la variance de la somme de variable aléatoire $V$, pour un de ses éléments $V_i$, pour la somme de variable centrée $W$ et pour un de ses éléments $W_i$:
 \begin{center}
 $\left\{\begin{array}{LCLC}
 V        &=& \sum_{i=1}^n V_i&(1)\\
-E( V_i ) &=& \widehat{\mu_1}&(2)\\
-D( V_i ) &=& \widehat{\sigma_1}&(3)\\
-E( V )   &=& \mu&(4)\\
-D( V )   &=& \sigma&(5)\\
-W_i      &=& V_i - \mu_i&(6)\\
+E( V_i ) &=& \widehat{\mu}&(2)\\
+D( V_i ) &=& \widehat{\sigma}&(3)\\
+E( V )   &=& \sum_{i=1}^n E (V_i)\\
+         &=& n\widehat{\mu}&(4)\\
+D( V )   &=& \sqrt{D^2(V)}\\
+         &=& \sqrt{\sum_{i=1}^n D^2(V_i)}\\
+         &=& \sqrt{n\widehat{\sigma}^2}\\
+         &=& \sqrt{n}\ \widehat{\sigma}&(5)\\
+\end{array}\right.
+\left\{\begin{array}{LCLC}
+W_i      &=& V_i - \widehat{\mu}&(6)\\
 W        &=& \sum_{i=1}^n W_i\\
-         &=& \sum_{i=1}^n  (V_i - \mu_i)\\
-         &=& \sum_{i=1}^n  (V_i) - n\mu_i\\
+         &=& \sum_{i=1}^n  (V_i - \widehat{\mu})\\
+         &=& \sum_{i=1}^n  (V_i) - n\widehat{\mu}\\
          &=& V - E ( V )&(7)\\
+E(W_i)   &=& E ( V_i - \widehat{\mu} )\\
+         &=& E( V_i ) - \widehat{\mu}\\
+         &=& \widehat{\mu} - \widehat{\mu} = 0&(8)\\
+D^2(W_i) &=& D^2( V_i - \widehat{\mu} )\\
+         &=& D^2( V_i )\\
+         &=& \widehat{\sigma}^2&(9)\\
 \end{array}\right.$
 \end{center}
 
 On commence avec la fonction génératrice des moments $\psi_V(t) = E(e^{tV})$
 \begin{align*}
 	\psi_Z(t) &= E \left( e^{tZ} \right)\\
-              &= E \left( e^{(t\dfrac{V-\mu}{\sigma})} \right)\\
-              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma}(V-\mu))} \right)\\
+              &= E \left( e^{(t\dfrac{V-\widehat{\mu}}{\sigma})} \right)\\
+              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma}(V-\widehat{\mu}))} \right)\\
 \intertext{On remplace par $\left\{
 \begin{array}{LCLC}
-V - \mu &=& \sum_{i=1}^n V_i - \mu&\text{car propriété }(1)\\
+V - \mu &=& \sum_{i=1}^n V_i - \widehat{\mu}&\text{car propriété }(1)\\
         &=& \sum_{i=1}^n V_i - E ( V )&\text{car propriété }(4)\\
         &=& \sum_{i=1}^n V_i - E \left( \sum_{i=1}^n V_i \right)&\text{car propriété }(1)\\
         &=& \sum_{i=1}^n V_i - \sum_{i=1}^n E \left( V_i \right)\\
@@ -89,6 +101,7 @@ V - \mu &=& \sum_{i=1}^n V_i - \mu&\text{car propriété }(1)\\
 \end{array}
 \right.$}
               &= E \left( \displaystyle e^{(\dfrac{t}{\sigma} \displaystyle\sum_{i=1}^n (V_i - \widehat{\mu} ))} \right)\\
+              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma} \displaystyle\sum_{i=1}^n ( W_i ))} \right)&\text{car propriété }(6)\\
 \intertext{Propriété : $Z=V+W$(indépendant)$\left\{
 \begin{aligned}
 \psi_Z &= E ( e^{tZ} )\\
@@ -99,8 +112,31 @@ V - \mu &=& \sum_{i=1}^n V_i - \mu&\text{car propriété }(1)\\
 \end{aligned}
 \right.$}
              &= \psi_{W_1}\left(\dfrac{t}{\sigma}\right) \psi_{W_2}\left(\dfrac{t}{\sigma}\right)\ \dots\ \psi_{W_n}\left(\dfrac{t}{\sigma}\right)\\
-             &= \left( \psi_{W_n}\left(\dfrac{t}{\sigma}\right) \right)^n
+             &= \left( \psi_{W_i}\left(\dfrac{t}{\sigma}\right) \right)^n
 \end{align*}
+$$\boxed{\psi_Z(t) = E \left( e^{tZ} \right) = \left( \psi_{W_i}\left(\dfrac{t}{\sigma}\right) \right)^n}$$
+Maintenant nous développons $\psi_{W_i}(t)$ par le théorème de Taylor :
+\begin{center}
+$\left\{\begin{array}{LCL}
+f(x) &=& \displaystyle\sum_{k=0}^n \dfrac{f^{(k)}(a)}{k!}(x-a)^k + R_n(x)\\
+     &=& f(a) + \dfrac{f'(a)}{1!}(x - a) + \dfrac{f^{(2)}(a)}{2!}(x - a)^2 + \cdots + \dfrac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x)\\
+\end{array}\right.$
+\end{center}
+\begin{center}
+$\left\{\begin{array}{LCLC}
+\psi_{W_i}(t) &=& 1 + E ( W_i ) t + E (W_i^2) \dfrac{t^2}{2}+R(t^3)\\
+              &=& 1 + 0 t + \sigma^2 + R(t^3)&\text{car propriété (8) et (9)}\\
+\end{array}\right.$
+\end{center}
+\begin{center}
+$\begin{array}{LCL}
+\lim_{n\rightarrow\infty}\ \psi_{Z}(t) &=& \lim_{n\rightarrow\infty}\ \left( \psi_{W_i} \left( \dfrac{t}{\sqrt(n)\ \sigma^2} \right) \right)^n \\[0.3cm]
+            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} + R(t^3) \right)^n\\
+            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} \right)^n\\
+            &=& e^{\frac{t^2}{2}}
+\end{array}$
+\end{center}
+$$\boxed{\psi_{Z}(t) = e^{\dfrac{t^2}{2}}\ \ \ \ \text{lorsque }(n\rightarrow\infty)}$$
 
 
 
