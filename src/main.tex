@@ -21,6 +21,12 @@
 \usepackage[table]{xcolor} % Couleurs dans les tableaux
 \usepackage{titlesec}
 
+\usepackage{array} % Tableau pour les formules de math
+\newcolumntype{L}{>{\displaystyle} l}
+\newcolumntype{C}{>{\displaystyle} c}
+\newcolumntype{R}{>{\displaystyle} r}
+\def\arraystretch{1.5}
+
 \input{pdfinfo}
 
 \usepackage{fancyhdr} % Mise en page spéciale fancyhdr pour les en-têtes

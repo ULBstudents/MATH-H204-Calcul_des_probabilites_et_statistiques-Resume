@@ -1,4 +1,8 @@
+\newpage
 \subsection{Théorèmes fondamentaux}
+
+
+
 
 
 
@@ -21,6 +25,9 @@ $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 
 
 
+
+
+\newpage
 \subsubsection{Théorème de Bernouilli ou loi des grands nombres}
 Lors de $n$ répétitions d'une expérience aléatoire, la fréquence relative $\dfrac{F}{n}$ d'un évènement tend vers sa probabilité $p$ d'exister lorsque $n\rightarrow\infty$
 $$\boxed{\dfrac{p(1-p)}{n\epsilon^2} \geq P\left(\left|\dfrac{F}{n}-p\right|\geq\epsilon\right) \stackrel{n\rightarrow\infty}{\rightarrow} 0}$$
@@ -40,22 +47,73 @@ $$\boxed{\dfrac{p(1-p)}{n\epsilon^2} \geq P\left(\left|\dfrac{F}{n}-p\right|\geq
 
 
 
+
+
+
+\newpage
 \subsubsection{Théorème Central-Limite}
 Ce théorème stipule que si $V$ est une somme de $n$ variables aléatoires (quelconques) indépendantes
 $$V = X_1\ ,\ X_2\ ,\ X_3\ ,\ \dots\ ,\ X_n$$
 alors sa variable réduite $\dfrac{V-\mu}{\sigma}$ tend vers une gausienne $N(0,1)$ lorsque $n\rightarrow\infty$.
 $$\boxed{\dfrac{V-E(V)}{D(V)} = \dfrac{V-\mu}{\sigma} \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)}$$
 \paragraph{Démonstration}
-???
+On pose d'abord les calculs de l'espérance et de la variance de la somme $V$ et pour un de ses éléments $V_i$ :
+\begin{center}
+$\left\{\begin{array}{LCLC}
+V        &=& \sum_{i=1}^n V_i&(1)\\
+E( V_i ) &=& \widehat{\mu_1}&(2)\\
+D( V_i ) &=& \widehat{\sigma_1}&(3)\\
+E( V )   &=& \mu&(4)\\
+D( V )   &=& \sigma&(5)\\
+W_i      &=& V_i - \mu_i&(6)\\
+W        &=& \sum_{i=1}^n W_i\\
+         &=& \sum_{i=1}^n  (V_i - \mu_i)\\
+         &=& \sum_{i=1}^n  (V_i) - n\mu_i\\
+         &=& V - E ( V )&(7)\\
+\end{array}\right.$
+\end{center}
+
+On commence avec la fonction génératrice des moments $\psi_V(t) = E(e^{tV})$
+\begin{align*}
+	\psi_Z(t) &= E \left( e^{tZ} \right)\\
+              &= E \left( e^{(t\dfrac{V-\mu}{\sigma})} \right)\\
+              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma}(V-\mu))} \right)\\
+\intertext{On remplace par $\left\{
+\begin{array}{LCLC}
+V - \mu &=& \sum_{i=1}^n V_i - \mu&\text{car propriété }(1)\\
+        &=& \sum_{i=1}^n V_i - E ( V )&\text{car propriété }(4)\\
+        &=& \sum_{i=1}^n V_i - E \left( \sum_{i=1}^n V_i \right)&\text{car propriété }(1)\\
+        &=& \sum_{i=1}^n V_i - \sum_{i=1}^n E \left( V_i \right)\\
+        &=& \sum_{i=1}^n V_i - \sum_{i=1}^n \widehat{\mu}&\text{car propriété }(2)\\
+        &=& \sum_{i=1}^n V_i - \widehat{\mu}
+\end{array}
+\right.$}
+              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma} \displaystyle\sum_{i=1}^n (V_i - \widehat{\mu} ))} \right)\\
+\intertext{Propriété : $Z=V+W$(indépendant)$\left\{
+\begin{aligned}
+\psi_Z &= E ( e^{tZ} )\\
+       &= E ( e^{t(V+W)} )\\
+       &= E ( e^{tV}e^{tW} )\\
+       &= E ( e^{tV} ) E ( e^{tW} )\\
+       &= \psi_V \psi_W
+\end{aligned}
+\right.$}
+             &= \psi_{W_1}\left(\dfrac{t}{\sigma}\right) \psi_{W_2}\left(\dfrac{t}{\sigma}\right)\ \dots\ \psi_{W_n}\left(\dfrac{t}{\sigma}\right)\\
+             &= \left( \psi_{W_n}\left(\dfrac{t}{\sigma}\right) \right)^n
+\end{align*}
 
 
 
 
+
+
+
+
+
+\newpage
 \subsubsection{Théorème de De Moivre}
 C'est un cas particulier du théorème Central-Limite puisqu'une binomiale est bien une somme de variables quelconques de mêmes distributions (à savoir, des variables indicatrices). La variable binomiale est asymptotiquement normale lorsque $\rightarrow\infty$.
 $$\boxed{\dfrac{B(n,p)-np}{\sqrt{np(1-p)}} \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)}$$
-
-
 \paragraph{Démonstration}
 On part donc avec le théorème de Central-Limite :
 $$\dfrac{V-E(V)}{D(V)} = \dfrac{V-\mu}{\sigma} \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)$$
