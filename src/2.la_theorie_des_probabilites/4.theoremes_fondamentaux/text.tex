@@ -10,24 +10,28 @@
 La proportion d'individus s'écartant de la moyenne d'une distribution de plus $k$ fois l'écart-type ($\sigma$) ne dépasse jamais $\dfrac{1}{k^2}$ :
 $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 \paragraph{Démonstration}
-\subparagraph{Cas continue}
+\subparagraph{Cas continu}
 \begin{align*}
-	\sigma^2 &= \int_{-\infty}^{\infty} (x-\mu)^2\ f(x)\ dx\\
-             &= \underbrace{\int_{-\infty}^{\mu-k\sigma}}_{\begin{aligned}x&\leq\mu-k\sigma\\x-\mu&\leq -k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu-k\sigma}^{\mu+k\sigma}}_{\geq0} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu+k\sigma}^{\infty}}_{\begin{aligned}x&\geq\mu+k\sigma\\x-\mu&\geq k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx\\
-    \sigma^2 &\geq \int_{-\infty}^{\mu-k\sigma} (k\sigma)^2\ f(x)\ dx + \int_{\mu+k\sigma}^{\infty} (k\sigma)^2\ f(x)\ dx\\
-    \sigma^2 &\geq (k\sigma)^2\ P(V\leq\mu-k\sigma) + (k\sigma)^2\ P(V\geq\mu+k\sigma)\\
-    \dfrac{1}{k^2} &\geq (k\sigma)^2\ P(V-\mu\leq-k\sigma) + (k\sigma)^2\ P(V-\mu\geq k\sigma)\\
-    \dfrac{1}{k^2} &\geq P(|V-\mu|\geq k\sigma) + P(|V-\mu|\geq k\sigma)\\
-    \dfrac{1}{k^2} &\geq P(|V-\mu|\geq k\sigma)
+	\sigma^2       &= \int_{-\infty}^{\infty} (x-\mu)^2\ f(x)\ dx\\
+	               &= \underbrace{\int_{-\infty}^{\mu-k\sigma}}_{\begin{aligned}x&\leq\mu-k\sigma\\x-\mu&\leq -k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu-k\sigma}^{\mu+k\sigma}}_{\geq0} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu+k\sigma}^{\infty}}_{\begin{aligned}x&\geq\mu+k\sigma\\x-\mu&\geq k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx\\
+	\sigma^2       &\geq \int_{-\infty}^{\mu-k\sigma} (k\sigma)^2\ f(x)\ dx + \int_{\mu+k\sigma}^{\infty} (k\sigma)^2\ f(x)\ dx\\
+	               &\geq (k\sigma)^2\ \int_{-\infty}^{\mu-k\sigma} f(x)\ dx + (k\sigma)^2\ \int_{\mu+k\sigma}^{\infty} f(x)\ dx\\
+	\dfrac{1}{k^2} &\geq P( V - \mu \leq-k\sigma) + P( V - \mu \geq k\sigma)\\
+	               &\geq P(|V-\mu|\geq k\sigma) + P(|V-\mu|\geq k\sigma)\\
 \end{align*}
 $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 \subparagraph{Cas discret}
 \begin{align*}
 	\sigma^2 &= \sum_{i} p_i(x_i - \mu)^2\\
-    &= \sum_{i;x_i\leq\mu-k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu-k\sigma\leq x_i\leq\mu+k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu+k\sigma\leq x_i} p(x_i - \mu)^2\\
-    &\leq\sum_{i;x_i\leq\mu-k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu+k\sigma\leq x_i} p(x_i - \mu)^2\\
-    &\leq k^2\sigma^2 \sum_{i;x_i\leq\mu-k\sigma} p_i + \sum_{i;\mu+k\sigma\leq x_i} p_i\\
+	         &= \sum_{i;x_i\leq\mu-k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu-k\sigma < x_i < \mu+k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu+k\sigma\leq x_i} p(x_i - \mu)^2\\
+	\sigma^2 &\geq\sum_{i;x_i\leq\mu-k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu+k\sigma\leq x_i} p(x_i - \mu)^2\\
+	         &\geq k^2\sigma^2 \sum_{i;x_i\leq\mu-k\sigma} p_i + \sum_{i;\mu+k\sigma\leq x_i} p_i\\
+	\dfrac{1}{k^2} &\geq \sum_{i;x_i\leq\mu-k\sigma} p_i + \sum_{i;\mu+k\sigma\leq x_i} p_i\\
+	         &\geq P(V \leq \mu - k\sigma) + P(V \geq \mu +k\sigma)\\
+	         &\geq P(V - \mu \leq - k\sigma) + P(V - \mu \geq k\sigma)\\
+	         &\geq P(|V - \mu| \geq k\sigma) + P(|V - \mu| \geq k\sigma)\\
 \end{align*}
+$$\boxed{\dfrac{1}{k^2} \geq P(|V - \mu| \geq k\sigma)}$$
 
 
 
@@ -47,6 +51,14 @@ Et on considère une binomiale $V = B(n,p)$
                    &\geq P\left(\left|\dfrac{B(n,p)}{n}-p\right|\geq k\sqrt{\dfrac{p(1-p)}{n}}\right)
 \end{align*}
 On pose $k\sqrt{\dfrac{p(1-p)}{n}} = \epsilon$ et $B(n,p) = F$
+\begin{center}
+	$\left\{\begin{array}{LLL}
+		k\sqrt{\dfrac{p(1-p)}{n}}&=&\epsilon\\
+		k&=&\epsilon\dfrac{\sqrt{n}}{\sqrt{p(1-p)}}\\
+		k^2&=&\dfrac{\epsilon^2n}{p(1-p)}\\
+		\dfrac{1}{k^2}&=&\dfrac{p(1-p)}{\epsilon^2n}\\
+	\end{array}\right.$
+\end{center}
 $$\boxed{\dfrac{p(1-p)}{n\epsilon^2} \geq P\left(\left|\dfrac{F}{n}-p\right|\geq\epsilon\right) \stackrel{n\rightarrow\infty}{\rightarrow} 0}$$
 
 
@@ -93,11 +105,11 @@ D^2(W_i) &=& D^2( V_i - \widehat{\mu} )\\
 On commence avec la fonction génératrice des moments $\psi_V(t) = E(e^{tV})$
 \begin{align*}
 	\psi_Z(t) &= E \left( e^{tZ} \right)\\
-              &= E \left( e^{(t\dfrac{V-\widehat{\mu}}{\sigma})} \right)\\
-              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma}(V-\widehat{\mu}))} \right)\\
+              &= E \left( e^{(t\dfrac{V-\mu}{\sigma})} \right)\\
+              &= E \left( \displaystyle e^{(\dfrac{t}{\sigma}(V-\mu))} \right)\\
 \intertext{On remplace par $\left\{
 \begin{array}{LCLC}
-V - \mu &=& \sum_{i=1}^n V_i - \widehat{\mu}&\text{car propriété }(1)\\
+V - \mu &=& \sum_{i=1}^n V_i - \mu&\text{car propriété }(1)\\
         &=& \sum_{i=1}^n V_i - E ( V )&\text{car propriété }(4)\\
         &=& \sum_{i=1}^n V_i - E \left( \sum_{i=1}^n V_i \right)&\text{car propriété }(1)\\
         &=& \sum_{i=1}^n V_i - \sum_{i=1}^n E \left( V_i \right)\\
@@ -128,20 +140,28 @@ f(x) &=& \displaystyle\sum_{k=0}^n \dfrac{f^{(k)}(a)}{k!}(x-a)^k + R_n(x)\\
 \end{array}\right.$
 \end{center}
 \begin{center}
+$\boxed{\begin{array}{LCL}
+D^2(W_i) &=& E(W_i^2) - E^2(W_i)\\
+E(W_i^2) &=& D^2(W_i) + E^2(W_i)\\
+         &=& \widehat{\sigma}^2 + 0^2\\
+\end{array}}$
+\end{center}
+\begin{center}
 $\left\{\begin{array}{LCLC}
 \psi_{W_i}(t) &=& 1 + E ( W_i ) t + E (W_i^2) \dfrac{t^2}{2}+R(t^3)\\
-              &=& 1 + 0 t + \sigma^2 + R(t^3)&\text{car propriété (8) et (9)}\\
+              &=& 1 + 0 t + \widehat{\sigma}^2 \dfrac{t^2}{2} + R(t^3)&\text{car propriété (8) et (9)}\\
 \end{array}\right.$
 \end{center}
 \begin{center}
 $\begin{array}{LCL}
-\lim_{n\rightarrow\infty}\ \psi_{Z}(t) &=& \lim_{n\rightarrow\infty}\ \left( \psi_{W_i} \left( \dfrac{t}{\sqrt(n)\ \sigma^2} \right) \right)^n \\[0.3cm]
-            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} + R(t^3) \right)^n\\
-            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} \right)^n\\
+\lim_{n\rightarrow\infty}\ \psi_{Z}(t) &=& \lim_{n\rightarrow\infty}\ \left( \psi_{W_i} \left( \dfrac{t}{\sigma} \right)^n \right) \\[0.3cm]
+            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} + R(t^3) \right)\\
+            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} \right)\\
             &=& e^{\frac{t^2}{2}}
 \end{array}$
 \end{center}
-$$\boxed{\psi_{Z}(t) = e^{\dfrac{t^2}{2}}\ \ \ \ \text{lorsque }(n\rightarrow\infty)}$$
+On a donc une allure d'une fonction génératrice d'une $N(0,1)$
+$$\boxed{\psi_{Z}(t) = e^{\frac{t^2}{2}}\ \ \ \ \text{lorsque }(n\rightarrow\infty)}$$
 
 
 

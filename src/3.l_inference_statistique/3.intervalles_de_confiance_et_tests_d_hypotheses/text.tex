@@ -1,18 +1,36 @@
-\subsection{Intervalles de confiance et tests d'hypoth`eses}
+\newpage
+\subsection{Intervalles de confiance et tests d'hypothèses}
+\subsubsection{Comparaison des moyennes de deux populations normales de même écart-type $\sigma$ connu}
 
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \subsubsection{Comparaison des moyennes de deux populations normales de même écart-type $\sigma$ inconnu}
-Les deux moyennes des deux populations :
+On commence avec deux moyennes des deux populations :
 $$\bar{X}_1 \sim N \left( \mu_1, \dfrac{\sigma}{\sqrt{n_1}} \right)$$
 $$\bar{X}_2 \sim N \left( \mu_2, \dfrac{\sigma}{\sqrt{n_2}} \right)$$
-On les soustrait :
-\begin{align*}
-\bar{X}_1 - \bar{X}_2 &= N \left( \mu_1 - \mu_2, \dfrac{\sigma}{\sqrt{n_1}} - \dfrac{\sigma}{\sqrt{n_2}} \right)\\
-                      &= N \left( \mu_1 - \mu_2, \dfrac{\sigma\sqrt{n_2} - \sigma\sqrt{n_1}}{\sqrt{n_1}\sqrt{n_2}} \right)\\
-                      &= N \left( \mu_1 - \mu_2, \sigma\dfrac{\sqrt{n_2} - \sqrt{n_1}}{\sqrt{n_1}\sqrt{n_2}} \right)\\
+Maintenant nous devons faire une soustraction de deux normales $\bar{X}_1 - \bar{X}_2$, pour faire cela nous inversons une normale et nous les additionnons $\bar{X}_1 + (-\bar{X}_2)$ grace à la propriété d'inverse d'une normale \ref{propriete-normale-inverse} page~\pageref{propriete-normale-inverse} et la propriété d'addition \ref{propriete-normale-addition} page~\pageref{propriete-normale-addition}.
+\begin{center}
+$\begin{array}{LL}
+\bar{X}_1 + (-\bar{X}_2) &= N \left( \mu_1 - \mu_2, \sqrt{\left(\dfrac{\sigma}{\sqrt{n_1}}\right)^2 + \left(\dfrac{\sigma}{\sqrt{n_2}}\right)^2} \right)\\
+                      &= N \left( \mu_1 - \mu_2, \sqrt{\dfrac{\sigma^2}{n_1} + \dfrac{\sigma^2}{n_2}} \right)\\
                       &= N \left( \mu_1 - \mu_2, \sigma\sqrt{\dfrac{n_1 + n_2}{n_1 n_2}} \right)\\
-\end{align*}
-
-\begin{align*}
-t_{n_1-1+n_2-1} &\sim \underbrace{\dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}}}_{\displaystyle N(0,1)} \underbrace{\dfrac{1}{\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}_{\displaystyle\chi_{n_1-1+n_2-1}^2}\\
-   &\sim \dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}
-\end{align*}
+\end{array}$
+\end{center}
+Ces deux variables étant indépendantes, on en déduit que
+\begin{center}
+$\begin{array}{LCL}
+T &=& t_{n_1-1+n_2-1}\\
+&\sim& \underbrace{\dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sigma\sqrt{\dfrac{n_1+n_2}{n_1n_2}}}}_{\displaystyle N(0,1)} \underbrace{\dfrac{1}{\dfrac{1}{\sigma}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}_{\displaystyle\chi_{n_1-1+n_2-1}^2}\\
+\end{array}$
+\end{center}
+$$\boxed{T \sim \dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}$$
