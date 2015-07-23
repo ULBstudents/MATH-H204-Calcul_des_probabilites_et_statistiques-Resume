@@ -10,6 +10,7 @@
 La proportion d'individus s'écartant de la moyenne d'une distribution de plus $k$ fois l'écart-type ($\sigma$) ne dépasse jamais $\dfrac{1}{k^2}$ :
 $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 \paragraph{Démonstration}
+\subparagraph{Cas continue}
 \begin{align*}
 	\sigma^2 &= \int_{-\infty}^{\infty} (x-\mu)^2\ f(x)\ dx\\
              &= \underbrace{\int_{-\infty}^{\mu-k\sigma}}_{\begin{aligned}x&\leq\mu-k\sigma\\x-\mu&\leq -k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu-k\sigma}^{\mu+k\sigma}}_{\geq0} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu+k\sigma}^{\infty}}_{\begin{aligned}x&\geq\mu+k\sigma\\x-\mu&\geq k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx\\
@@ -20,9 +21,13 @@ $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
     \dfrac{1}{k^2} &\geq P(|V-\mu|\geq k\sigma)
 \end{align*}
 $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
-
-
-
+\subparagraph{Cas discret}
+\begin{align*}
+	\sigma^2 &= \sum_{i} p_i(x_i - \mu)^2\\
+    &= \sum_{i;x_i\leq\mu-k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu-k\sigma\leq x_i\leq\mu+k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu+k\sigma\leq x_i} p(x_i - \mu)^2\\
+    &\leq\sum_{i;x_i\leq\mu-k\sigma} p(x_i - \mu)^2 + \sum_{i;\mu+k\sigma\leq x_i} p(x_i - \mu)^2\\
+    &\leq k^2\sigma^2 \sum_{i;x_i\leq\mu-k\sigma} p_i + \sum_{i;\mu+k\sigma\leq x_i} p_i\\
+\end{align*}
 
 
 

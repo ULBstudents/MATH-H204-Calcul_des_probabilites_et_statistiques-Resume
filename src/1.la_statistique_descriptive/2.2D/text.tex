@@ -21,7 +21,7 @@ La covariance est le moment d'ordre (1,1):
 $$m_{11}=\frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (x_i-\bar{x})(y_j-\bar{y})$$
 
 \begin{align*}
-	0 &\leq \alpha
+	0 &\leq \alpha\\
 	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} \underbrace{ ( u (x_i-\bar{x})(y_j-\bar{y}))^2 }_\text{$^2$ car toujours $\geq 0$} \\
 	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (u^2(x_i-\bar{x})^2 + 2u(x_i-\bar{x})(y_j-\bar{y})+(y_j-\bar{y})^2)\\
 	  &\leq u^2s_1^2+2u\ m_{11}+s_2^2
@@ -29,11 +29,10 @@ $$m_{11}=\frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (x_i-\bar{x})(y_j-\bar
 
 Équation du second degré, on calcule son $\Delta$ :
 \begin{align*}
-\Delta &\leq 0\\
-(2 m_{11})^4 - 4 s_1^2 s_2^2 &\leq 0\\
-m_{11}^2 - s_1^2 s_2^2 &\leq 0\\
-m_{11}^2 &\leq s_1^2 s_2^2\\
-|m_{11}| &\leq s_1 s_2
+	\Delta &\leq 0\\
+	(2 m_{11})^4 - 4 s_1^2 s_2^2 &\leq 0\\
+	m_{11}^2 - s_1^2 s_2^2 &\leq 0\\
+	m_{11}^2 &\leq s_1^2 s_2^2
 \end{align*}
 $$\boxed{|m_{11}| \leq s_1 s_2}$$
 
@@ -62,11 +61,11 @@ On multiplie par $\frac{n_{ij}}{n}$ et on somme sur $ij$.
 
 L'équation a la même forme que $\alpha$, du coup...
 \begin{align*}
-0  &= \Delta\\
-        &= m_{11}^2-s_1^2s_2^2\\
-m_{11}^2 &= s_1^2s_2^2\\
-|m_{11}| &= s_1s_2
+	0        &= \Delta\\
+	         &= m_{11}^2-s_1^2s_2^2\\
+	m_{11}^2 &= s_1^2s_2^2
 \end{align*}
+$$|m_{11}| = s_1s_2$$
 
 
 
@@ -79,7 +78,7 @@ $$\boxed{r=\frac{m_{11}}{s_1s_2}}$$
 	\item $r$ sans dimensions ;
 	\item $r' = r$ ;
 	\item $-1 \leq r \leq 1$ ;
-	\item $|r| = 1$ car les points obervés se trouvent sur une droite non parallèle aux axes.
+	\item $|r| = 1$ car les points obervés se trouvent sur une droite non parall`ele aux axes.
 \end{enumerate}
 
 
@@ -95,7 +94,7 @@ $$\boxed{r=\frac{m_{11}}{s_1s_2}}$$
 \begin{center}
 	\includegraphics[width=0.3\textwidth]{images/droite_de_regression.pdf}
 \end{center}
-La droite de régression de y en x est la droite qui minimise la somme des carrés des écarts des points observés à cette droite, les écarts étant pris parallèlement à l'axe y. C'est donc la droite d'équation $y = ax+b$ qui minimise la quantité.
+La droite de régression de y en x est la droite qui minimise la somme des carrés des écarts des points observés à cette droite, les écarts étant pris parall`element à l'axe y. C'est donc la droite d'équation $y = ax+b$ qui minimise la quantité.
 $$\boxed{g(a,b) = \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (y_j - a\ x_i - b)^2}$$
 Dérivée par rapport à $a$ :
 \begin{center}
@@ -138,13 +137,13 @@ On soustrait le $(1)$ par le double du $(2)$ :
 \begin{center}
 	$\begin{array}{RRCL}
 		\bar{x}.(2) :& n\bar{y}\bar{x} &=& an\bar{x}^2 + bn\bar{x}\\
-		(1) - \bar{x}.(2) :& \left(\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}x_iy_j \right) - ( n\bar{y}\bar{x} ) &=& \left( a \sum_{i=1}^{p} - an\bar{x}^2 + b\sum_{i=1}^{p} n_{i.}x_i \right) - \left( an\bar{x}^2 + bn\bar{x} \right)\\
+		(1) - \bar{x}.(2) :& \left(\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}x_iy_j \right) - ( n\bar{y}\bar{x} ) &=& \left( a \sum_{i=1}^{p} - n_{i.}x_i^2 + b\sum_{i=1}^{p} n_{i.}x_i \right) - \left( an\bar{x}^2 + bn\bar{x} \right)\\
         &&\vdots&
 	\end{array}$
 \end{center}
 Pour obtenir à la fin :
 \begin{center}
-	$\boxed{a = \dfrac{m_{11}}{s_1^2}}$ et $\boxed{b = \bar{y} - \dfrac{m_{11}}{s_1^2}}$
+	$\boxed{a = \dfrac{m_{11}}{s_1^2}}$ et $\boxed{b = \bar{y} - \dfrac{m_{11}}{s_1^2} \bar{x}} $
 \end{center}
 On remplace dans une droite :
 \begin{center}
@@ -156,7 +155,7 @@ On remplace dans une droite :
 Pour obtenir la droite de regression de $y$ en $x$ :
 $$\boxed{y = \dfrac{m_{11}}{s_1^2} (x - \bar{x}) + \bar{y}}$$
 Le raisonnement est symétrique pour le cas de la régression de $x$ en $y$.
-
+$$\boxed{x = \dfrac{m_{11}}{s_1^2} (y - \bar{y}) + \bar{x}}$$
 
 
 
@@ -166,11 +165,19 @@ Le raisonnement est symétrique pour le cas de la régression de $x$ en $y$.
 \subsubsection{Variances résiduelles}
 La variance résiduelle de $y$ en $x$ est :
 $$\boxed{s_{21}^2 = s_2^2 (1-r^2)}$$
+\paragraph{Propriété et interprétation}
+\begin{itemize}
+	\item $s_{21}^2 = 0$ ssi $r = \pm1$ ssi tous les points observés sont sur une droite ;
+	\item $s_{21}^2 = s_2^2$ ssi $r = 0$ ssi les droites de régression sont parallèles aux axes ;
+	\item $s_2^2r^2$ représente une certaine proportion de $s_2^2$, d’autant plus grande que la dépendance linéaire entre $x$ et $y$ est forte : on peut donc la considérer comme la part de la variance de y qui est expliquée par le lien linéaire entre $x$ et $y$, tandis que la variance résiduelle $s_{21}^2$ est la part de la variance de $y$ qui n’est pas expliquée par ce lien linéaire (d’où son nom).
+\end{itemize}
 \paragraph{Démonstration}
 Nous partons de la variance de $y$ en $x$ :
 \begin{center}
 $\begin{array}{RL}
-s_{21}^2 &= \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij} \left( y_i - \dfrac{m_{11}}{s_1^2} x_i - \bar{y} + \dfrac{m_{11}}{s_1^2}\bar{x}\right)^2\\
+s_{21}^2 &= \dfrac{1}{n}\underbrace{\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij} \left( y_i - ax_i - b \right)^2}_{\text{valeur minimum de g(a,b)}}\\[0.5cm]
+         &\boxed{a = \dfrac{m_{11}}{s_1^2}} \text{ et } \boxed{b = \bar{y} - \dfrac{m_{11}}{s_1^2}\bar{x}}\\[0.5cm]
+         &= \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij} \left( y_i - \dfrac{m_{11}}{s_1^2} x_i - \bar{y} + \dfrac{m_{11}}{s_1^2}\bar{x}\right)^2\\
          &= \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij} \left( (y_i-\bar{y}) - \dfrac{m_{11}}{s_1^2} (x_i - \bar{x})\right)^2\\
          &= \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij} (y_i-\bar{y})^2 - 2 \dfrac{m_{11}}{s_1^2} (x_i - \bar{x})(y_i-\bar{y}) + \dfrac{m_{11^2}}{s_1^4} (x_i - \bar{x})^2\\
          &= \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij}(y_i-\bar{y})^2 - 2\dfrac{m_{11}}{s_1^2}\dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} + \dfrac{m_{11^2}}{s_1^4} \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij}(x_i - \bar{x})^2\\
@@ -179,7 +186,7 @@ s_{21}^2 &= \dfrac{1}{n}\sum_{i=1}^{p}\sum_{i=1}^{q} n_{ij} \left( y_i - \dfrac{
          &= s_2^2 - \dfrac{m_{11}^2}{s_1^2}
 \end{array}$
 \end{center}
-On utilise le coefficient de corrélation $r = \dfrac{m_11}{s_1s_2}$, donc $\dfrac{m_{11}}{s_1} = rs_2$ :
+On utilise le coefficient de corrélation $r = \dfrac{m_{11}}{s_1s_2}$, donc $\dfrac{m_{11}}{s_1} = rs_2$ :
 \begin{center}
 $\begin{array}{RL}
 s_2^2 - \dfrac{m_{11}^2}{s_1^2} &= s_2^2 - (rs_2)^2\\
@@ -188,3 +195,4 @@ s_2^2 - \dfrac{m_{11}^2}{s_1^2} &= s_2^2 - (rs_2)^2\\
 \end{center}
 $$\boxed{s_{21}^2 = s_2^2 (1-r^2)}$$
 La variance résiduelle de $x$ en $y$ est similaire.
+$$\boxed{s_{12}^2 = s_1^2 (1-r^2)}$$

@@ -1,35 +1,84 @@
-
-
-
 \subsection{Probabilités}
 
 
 
-\subsubsection{Axiomes de la théorie des probabilités}
 
-\begin{equation*}
-\left\{
-\begin{aligned}
-	P(A) & \geq 0\\
-    P(E) & = 1\\
-    A \cap B &= \emptyset \Rightarrow P(A \cup B) = P(A)+P(B)
-\end{aligned}
-\right.
-\end{equation*}
+
+\subsubsection{Axiomes de la théorie des probabilités}
+\begin{center}
+	$\left\{\begin{array}{LLL}
+		P(E) &= 1\\
+		P(A) &\geq 0&\forall A\subset E\\
+		A \cap B &= \emptyset \Rightarrow P(A \cup B) = P(A)+P(B)
+	\end{array}
+	\right.$
+\end{center}
+
+
+
+
+
+
+\subsubsection{Probabilité indépendance}
+Si $A$ et $B$ sont indépendants alors
+\begin{itemize}
+	\item $A$ et $\bar{B}$ sont indépendants ;
+	\item $\bar{A}$ et $\bar{B}$ sont indépendants ;
+	\item $\bar{A}$ et $B$ sont indépendants.
+\end{itemize}
+
+
 
 
 
 
 \subsubsection{Probabilité conditionnelle et indépendance}
-
-
-
 Probabilité conditionnelle de $A$ sous la condition $B$ ("sachant $B$") :
 $$P(A|B)=\frac{P(A \cap B)}{P(B)}$$
 Si A est indépendant de $B$ :
-$$P(A|B)=P(A)$$
-alors
-$$P(A \cap B)=P(A)P(B)$$
+	$\left\{\begin{array}{LL}
+		P(A \cap B)&=P(A)P(B)\\
+		P(A|B)&=P(A)\\
+		P(B|A)&=P(B)
+	\end{array}
+\right.$
+\begin{flushright}
+Une des propriétés des 3 suffit.
+\end{flushright}
+\paragraph{Démonstration}
+La probabilité conditionnelle respecte les axiomes de la théorie des probabilités
+\begin{center}
+	$\begin{array}{LCCL}
+		P(E|A) &=& \dfrac{P(E\cap A)}{P(A)} = \dfrac{P(A)}{P(A)}&=1\\
+		P(B|A) &=& \dfrac{P(B\cap A)}{P(A)}&\geq0\\
+		X\cap Y\neq\emptyset &\Rightarrow& P(X\cup Y |A)\\
+		&&\dfrac{P((X\cup Y)\cap A)}{P(A)}\\
+		&&\dfrac{P((X\cap A)\cup (Y\cap A))}{P(A)}\\
+		&&\dfrac{P(X\cap A) + (Y\cap A)}{P(A)}\\
+		&&\dfrac{P(X|A)P(A) + P(Y|A)P(A)}{P(A)}\\
+		&&P(X|A) + P(Y|A)\\
+	\end{array}$
+\end{center}
+
+
+
+
+
+
+\subsubsection{Probabilité conditionnelle inverse et indépendant}
+$$P(A|B) = P(A|\bar{B})$$
+\paragraph{Démonstration}
+\begin{center}
+	$\begin{array}{CCC}
+		P(A|B)                   &=& P(A|\bar{B})\\
+		\dfrac{P(A\cap B}{P(B))} &=& \dfrac{P(A\cap\bar{B})}{P(\bar{B})}\\
+		\dfrac{P(A) P(B)}{P(B)}  &=& \dfrac{P(A)P(B)}{P(\bar{B})}\\
+		P(A)                     &=& P(A)\\
+	\end{array}$
+\end{center}
+
+
+
 
 
 

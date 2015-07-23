@@ -1,3 +1,4 @@
+\newpage
 \subsection{Variables aléatoires particulières}
 
 
@@ -5,6 +6,27 @@
 \subsubsection{Variable de Poisson $\mathcal{P}_\lambda$}
 \subsubsection{Variable exponentielle négative}
 \subsubsection{Variable Normale $\mathcal{N}(\mu,\sigma)$}
+
+
+
+\paragraph{Propriété d'addition}
+Soit $N(\mu_1,\sigma_1)$ et $N(\mu_2,\sigma_2)$ deux variables normales indépendantes et $\psi_1(t)$ et $\psi_2(t)$ leurs fonctions génératrices.
+\begin{center}
+$\begin{array}{LL}
+\psi(t) &= \psi_1(t).\psi_2(t)\\
+        &= e^{\mu_1+t+\sigma_1^2t^2/2}.e^{\mu_2+t+\sigma_2^2t^2\frac{1}{2}}\\
+        &= e^{(\mu_1+\mu_2)t+\frac{1}{2}(\sigma_1^2+\sigma_2^2)t^2}\\
+\end{array}$
+\end{center}
+On obtient bien une fonction génératrice d'une normale de paramètres $(\mu_1+\mu_2)$ et $\sqrt{\sigma_1^2+\sigma_2^2}$.
+$$\boxed{N(\mu_1,\sigma_1) + N(\mu_2,\sigma_2) = N\left(\mu_1+\mu_2,\sqrt{\sigma_1^2+\sigma_2^2}\right)}$$
+
+
+
+
+
+
+
 \subsubsection{Variable Khi$^2$}
 \subsubsection{Variable Student $t_n$}
 \subsubsection{Variable Snedecor $\mathcal{F}_{(m,n)}$}
