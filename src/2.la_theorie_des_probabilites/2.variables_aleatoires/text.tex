@@ -16,7 +16,7 @@ $$\boxed{W = G(V)}$$
     F_W(x)    &=& P(W \leq x) \\
               &=& P(G(V) \leq x) \\
               &=& P(V \leq G^{-1}(x)) \\
-              &=& F_V(G^{-1}(x) \\
+              &=& F_V(G^{-1}(x)) \\
 	\end{array}$
 \end{center}
 \paragraph{Cas continu}
@@ -43,35 +43,30 @@ $$\boxed{W = G(V)}$$
 
 
 \newpage
-\subsubsection{Distribution de la somme de deux variables aléatoires}
+\subsubsection{Distribution de la somme de deux variables aléatoires}\label{distribution-somme-variables-aleatoires}
 $$\boxed{Z = V+W}$$
-
-
-
 \paragraph{Cas discret}
-\begin{align*}
-    F_Z(x) &= \sum_i\sum_jp_{ij}\\
-           &= \sum_i\sum_jP(V \leq v_i,W \leq w_i)
-\end{align*}
-
-
-
+\begin{center}
+	$\begin{array}{LLL}
+	    F_Z(x) &= \sum_i\sum_jp_{ij}\\
+		 &= \sum_i\sum_jP(V \leq v_i,W \leq w_i)&\text{tel que $v_i+w_i\leq x$}\\
+	\end{array}$
+\end{center}
 \paragraph{Cas continu}
-\begin{align*}
-	F_Z(x)     &= P(Z \leq x)\\
-	F_{V+W}(x) &= P(V \leq x, W \leq x) \\
-	           &= \iint\limits_{\xi + \eta\leq x} f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
-\intertext{On remplace par $\left\{
-\begin{tabular}{cl}
-	$\xi$  & $= u$\\[0.2cm]
-	$\eta$ & $= v-u$\\[0.2cm]
-	$J$    & $= \left(\begin{tabular}{cc}$\dfrac{\delta\xi}{\delta u}$&$\dfrac{\delta \xi}{\delta v}$\\[0.5cm]$\dfrac{\delta\eta}{\delta u}$&$\dfrac{\delta\eta}{\delta v}$\end{tabular}\right) = \left(\begin{tabular}{cc}1&0\\[0.2cm]$-1$&$1$\end{tabular}\right) = 1.1-0.(-1) = 1$
-\end{tabular}
-\right.$}
-	&= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\left|1\right|\ du\ dv\\
-	&= \int\limits_{-\infty}^x\ dv \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ du
-\end{align*}
-
+\begin{center}
+	$\begin{array}{LLL}
+		F_Z(x)     &= P(Z \leq x)\\
+		F_{V+W}(x) &= P(V \leq \xi, W \leq \eta)&\text{tel que }v_i+w_i\leq x \\
+			 &= \iint\limits_{\xi + \eta\leq x} f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
+	\multicolumn{3}{L}{\text{On remplace par}\left\{\begin{array}{CL}
+		\xi  &= u\\[0.2cm]
+		\eta &= v-u\\[0.2cm]
+		 J   &= \left(\begin{array}{CC}\dfrac{\delta\xi}{\delta u}&\dfrac{\delta \xi}{\delta v}\\[0.5cm]\dfrac{\delta\eta}{\delta u}&\dfrac{\delta\eta}{\delta v}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]-1&1\end{array}\right) = 1.1-0.(-1) = 1
+	\end{array}\right.}\\
+		&= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\left|1\right|\ du\ dv\\
+		&= \int\limits_{-\infty}^x\ dv \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ du
+	\end{array}$
+\end{center}
 $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,x-u)\ du }$$
 ou si indépendant
 $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_V\left(u\right).\ f_W\left(x-u\right)\ du }$$
@@ -86,28 +81,32 @@ $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\inft
 
 
 \newpage
-\subsubsection{Distribution du produit de deux variables aléatoires}
+\subsubsection{Distribution du produit de deux variables aléatoires}\label{distribution-produit-variables-aleatoires}
 $$\boxed{Z = VW}$$
-
 \paragraph{Cas continu}
-\begin{align*}
-	F_Z(x)     &= P(Z \leq x)\\
-	F_{V.W}(x) &= P(V \leq x, W \leq x) \\
-	           &= \iint\limits_{\xi . \eta\leq x} f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
-	\intertext{On remplace par $\left\{
-		\begin{tabular}{cl}
-			$\xi$  & $= u$\\[0.2cm]
-			$\eta$ & $= \dfrac{v}{u}$\\[0.2cm]
-			$J$    & $= \left(\begin{tabular}{cc}$\dfrac{\delta\xi}{\delta u}$&$\dfrac{\delta \xi}{\delta v}$\\[0.5cm]$\dfrac{\delta\eta}{\delta u}$&$\dfrac{\delta\eta}{\delta v}$\end{tabular}\right) = \left(\begin{tabular}{cc}1&0\\[0.2cm]$\dfrac{-1}{u^2}$&$\dfrac{1}{u}$\end{tabular}\right) = 1.\dfrac{1}{u} - 0.\dfrac{-1}{u^2} = \dfrac{1}{u}$
-		\end{tabular}
-		\right.$}
-	&= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\ du\ dv\\
-	&= \int\limits_{-\infty}^x\ dv \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ du
-\end{align*}
-
+\begin{center}
+	$\begin{array}{LLL}
+		F_Z(x)     &= P(Z \leq x)\\
+		F_{V.W}(x) &= P(V \leq \xi, W \leq \eta)&\text{tel que }v_i+w_i\leq x \\
+			 &= \iint\limits_{\xi . \eta\leq x} f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
+		\multicolumn{3}{L}{\text{On remplace par }\left\{
+			\begin{array}{CL}
+				\xi  & = u\\[0.2cm]
+				\eta & = \dfrac{v}{u}\\[0.2cm]
+				J    & = \left(\begin{array}{CC}\dfrac{\delta\xi}{\delta u}&\dfrac{\delta \xi}{\delta v}\\[0.5cm]\dfrac{\delta\eta}{\delta u}&\dfrac{\delta\eta}{\delta v}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]\dfrac{-1}{u^2}&\dfrac{1}{u}\end{array}\right) = 1.\dfrac{1}{u} - 0.\dfrac{-1}{u^2} = \dfrac{1}{u}
+			\end{array}
+			\right.}\\
+		&= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\ du\ dv\\
+		&= \int\limits_{-\infty}^x\ dv \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ du
+	\end{array}$
+\end{center}
 $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_{(V,W)}\left(u,\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ du }$$
 ou si indépendant
 $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_V\left(u\right).\ f_W\left(\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ du }$$
+
+
+
+
 
 
 
@@ -120,21 +119,20 @@ $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\inft
 $$\boxed{Z = V+W}$$
 
 \paragraph{Demonstration}
-\begin{align*}
-	E(Z) &= \int_{-\infty}^\infty x\ f_{(V+W)}(x)\ dx\\
-	&= \int_{-\infty}^\infty\int_{-\infty}^\infty x\ f_{(V,W)}(u,x-u)\ du\ dv\\
-\intertext{On remplace par $\left\{
-\begin{array}{CL}
-	u &= \xi\\[0.2cm]
-	x & = \xi -\eta\\[0.2cm]
-	J & = \left(\begin{array}{CC}\dfrac{\delta u}{\delta\xi}&\dfrac{\delta u}{\delta\eta}\\[0.5cm]\dfrac{\delta x}{\delta\xi}&\dfrac{\delta x}{\delta\eta}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]1&-1\end{array}\right) = 1.-1-0.1 = -1
-\end{array}
-\right.$}
-&= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi+\eta)\ f_{(V,W)}(\xi,\eta)\left|-1\right|\ d\xi\ d\eta\\
-&= \int_{-\infty}^\infty\int_{-\infty}^\infty \xi\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta + \int_{-\infty}^\infty\int_{-\infty}^\infty \eta\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
-&= \int_{-\infty}^\infty \xi\ f_{V}(\xi)\ d\xi\ + \int_{-\infty}^\infty \eta\ f_{W}(\eta)\ d\eta\\
-&= E(V)+E(W)\\
-\end{align*}
+\begin{center}
+	$\begin{array}{LLL}
+		E(Z) &= \int_{-\infty}^\infty x\ f_{(V+W)}(x)\ dx\\
+		&= \int_{-\infty}^\infty\int_{-\infty}^\infty x\ f_{(V,W)}(u,x-u)\ du\ dv&\text{\ref{distribution-somme-variables-aleatoires} page~\pageref{distribution-somme-variables-aleatoires}}\\
+		\multicolumn{3}{L}{\text{On remplace par }\left\{\begin{array}{CL}
+			u &= \xi\\[0.2cm]
+			x & = \xi -\eta\\[0.2cm]
+			J & = \left(\begin{array}{CC}\dfrac{\delta u}{\delta\xi}&\dfrac{\delta u}{\delta\eta}\\[0.5cm]\dfrac{\delta x}{\delta\xi}&\dfrac{\delta x}{\delta\eta}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]1&-1\end{array}\right) = 1.-1-0.1 = -1\\\end{array}\right.}\\
+		&= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi+\eta)\ f_{(V,W)}(\xi,\eta)\left|-1\right|\ d\xi\ d\eta\\
+		&= \int_{-\infty}^\infty\int_{-\infty}^\infty \xi\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta + \int_{-\infty}^\infty\int_{-\infty}^\infty \eta\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
+		&= \int_{-\infty}^\infty \xi\ f_{V}(\xi)\ d\xi\ + \int_{-\infty}^\infty \eta\ f_{W}(\eta)\ d\eta\\
+		&= E(V)+E(W)\\
+	\end{array}$
+\end{center}
 
 
 
@@ -148,22 +146,23 @@ $$\boxed{Z = V+W}$$
 
 
 \newpage
-\subsubsection{Distribution du produit des espérances }
+\subsubsection{Distribution du produit des espérances}
 $$\boxed{Z = V.W}$$
 
 \paragraph{Demonstration} Uniquement pour des variables indépendantes
-\begin{align*}
+\begin{center}
+$\begin{array}{LLL}
 	E(Z) &= \int_{-\infty}^\infty x\ f_{(V.W)}(x)\ dx\\
-	&= \int_{-\infty}^\infty\int_{-\infty}^\infty x\ f_{V}(u)f_w\left(\dfrac{x}{u}\right)\left|\dfrac{1}{u}\right|\ du\ dv\\
-\intertext{On remplace par $\left\{
+	&= \int_{-\infty}^\infty\int_{-\infty}^\infty x\ f_{V}(u)f_w\left(\dfrac{x}{u}\right)\left|\dfrac{1}{u}\right|\ du\ dv&\text{\ref{distribution-produit-variables-aleatoires} page~\pageref{distribution-produit-variables-aleatoires}}\\
+\multicolumn{3}{L}{\text{On remplace par }\left\{
 \begin{array}{CL}
 	u &= \xi\\[0.2cm]
 	x & = \xi\eta\\[0.2cm]
-	J & = \left(\begin{array}{CC}\dfrac{\delta u}{\delta\xi}&\dfrac{\delta u}{\delta\eta}\\[0.5cm]\dfrac{\delta x}{\delta\xi}&\dfrac{\delta x}{\delta\eta}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]\eta&\xi\end{array}\right) = 1.\xi-0.\eta = \xi
-\end{array}
-\right.$}
+	J & = \left(\begin{array}{CC}\dfrac{\delta u}{\delta\xi}&\dfrac{\delta u}{\delta\eta}\\[0.5cm]\dfrac{\delta x}{\delta\xi}&\dfrac{\delta x}{\delta\eta}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]\eta&\xi\end{array}\right) = 1.\xi-0.\eta = \xi\\
+\end{array}\right.}\\
 &= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi\eta)\ f_{(V,W)}(\xi,\eta)\left|\xi\right|\ d\xi\ d\eta\\
 &= \int_{-\infty}^\infty\int_{-\infty}^\infty \xi\ f_V(\xi)f_W(\eta)\ d\xi\ d\eta \int_{-\infty}^\infty\int_{-\infty}^\infty \eta\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
 &= \int_{-\infty}^\infty \xi\ f_{V}(\xi)\ d\xi\ \int_{-\infty}^\infty \eta\ f_{W}(\eta)\ d\eta\\
 &= E(V).E(W)\\
-\end{align*}
+\end{array}$
+\end{center}

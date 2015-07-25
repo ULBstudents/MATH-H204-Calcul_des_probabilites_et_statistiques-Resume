@@ -11,14 +11,17 @@ La proportion d'individus s'écartant de la moyenne d'une distribution de plus $
 $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 \paragraph{Démonstration}
 \subparagraph{Cas continu}
-\begin{align*}
-	\sigma^2       &= \int_{-\infty}^{\infty} (x-\mu)^2\ f(x)\ dx\\
-	               &= \underbrace{\int_{-\infty}^{\mu-k\sigma}}_{\begin{aligned}x&\leq\mu-k\sigma\\x-\mu&\leq -k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu-k\sigma}^{\mu+k\sigma}}_{\geq0} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu+k\sigma}^{\infty}}_{\begin{aligned}x&\geq\mu+k\sigma\\x-\mu&\geq k\sigma\\(x-\mu)^2&\geq(k\sigma)^2\end{aligned}} (x-\mu)^2\ f(x)\ dx\\
-	\sigma^2       &\geq \int_{-\infty}^{\mu-k\sigma} (k\sigma)^2\ f(x)\ dx + \int_{\mu+k\sigma}^{\infty} (k\sigma)^2\ f(x)\ dx\\
-	               &\geq (k\sigma)^2\ \int_{-\infty}^{\mu-k\sigma} f(x)\ dx + (k\sigma)^2\ \int_{\mu+k\sigma}^{\infty} f(x)\ dx\\
-	\dfrac{1}{k^2} &\geq P( V - \mu \leq-k\sigma) + P( V - \mu \geq k\sigma)\\
-	               &\geq P(|V-\mu|\geq k\sigma) + P(|V-\mu|\geq k\sigma)\\
-\end{align*}
+\begin{center}
+	$\begin{array}{LL}
+		\sigma_2       &= \int_{-\infty}^{\infty} (x-\mu)^2\ f(x)\ dx\\
+			     &= \underbrace{\int_{-\infty}^{\mu-k\sigma}}_{\substack{x\leq\mu-k\sigma\\x-\mu\leq -k\sigma\\(x-\mu)^2\geq(k\sigma)^2}}
+		         (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu-k\sigma}^{\mu+k\sigma}}_{\geq0} (x-\mu)^2\ f(x)\ dx + \underbrace{\int_{\mu+k\sigma}^{\infty}}_{\substack{x\geq\mu+k\sigma\\x-\mu\geq k\sigma\\(x-\mu)^2\geq(k\sigma)^2}} (x-\mu)^2\ f(x)\ dx\\
+		\sigma^2       &\geq \int_{-\infty}^{\mu-k\sigma} (k\sigma)^2\ f(x)\ dx + \int_{\mu+k\sigma}^{\infty} (k\sigma)^2\ f(x)\ dx\\
+			     &\geq (k\sigma)^2\ \int_{-\infty}^{\mu-k\sigma} f(x)\ dx + (k\sigma)^2\ \int_{\mu+k\sigma}^{\infty} f(x)\ dx\\
+		\dfrac{1}{k^2} &\geq P( V - \mu \leq-k\sigma) + P( V - \mu \geq k\sigma)\\
+			     &\geq P(|V-\mu|\geq k\sigma) + P(|V-\mu|\geq k\sigma)\\
+	\end{array}$
+\end{center}
 $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 \subparagraph{Cas discret}
 \begin{align*}
@@ -32,6 +35,10 @@ $$\boxed{\dfrac{1}{k^2} \geq P(|V-\mu|\geq k\sigma)}$$
 	         &\geq P(|V - \mu| \geq k\sigma) + P(|V - \mu| \geq k\sigma)\\
 \end{align*}
 $$\boxed{\dfrac{1}{k^2} \geq P(|V - \mu| \geq k\sigma)}$$
+
+
+
+
 
 
 
@@ -74,7 +81,7 @@ $$V = X_1\ ,\ X_2\ ,\ X_3\ ,\ \dots\ ,\ X_n$$
 alors sa variable réduite $\dfrac{V-\mu}{\sigma}$ tend vers une gausienne $N(0,1)$ lorsque $n\rightarrow\infty$.
 $$\boxed{\dfrac{V-E(V)}{D(V)} = \dfrac{V-\mu}{\sigma} \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)}$$
 \paragraph{Démonstration}
-On pose d'abord les calculs de l'espérance et de la variance de la somme de variable aléatoire $V$, pour un de ses éléments $V_i$, pour la somme de variable centrée $W$ et pour un de ses éléments $W_i$:
+On pose d'abord les calculs de l'espérance et de l'écart-type de la somme de variable aléatoire $V$, pour un de ses éléments $V_i$, pour la somme de variable centrée $W$ et pour un de ses éléments $W_i$:
 \begin{center}
 $\left\{\begin{array}{LCLC}
 V        &=& \sum_{i=1}^n V_i&(1)\\
@@ -152,16 +159,17 @@ $\left\{\begin{array}{LCLC}
               &=& 1 + 0 t + \widehat{\sigma}^2 \dfrac{t^2}{2} + R(t^3)&\text{car propriété (8) et (9)}\\
 \end{array}\right.$
 \end{center}
+$$\boxed{Z = \dfrac{W}{\sqrt{n}\widehat{\sigma}} = \dfrac{V-\mu}{\sigma} \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)}$$
 \begin{center}
 $\begin{array}{LCL}
-\lim_{n\rightarrow\infty}\ \psi_{Z}(t) &=& \lim_{n\rightarrow\infty}\ \left( \psi_{W_i} \left( \dfrac{t}{\sigma} \right)^n \right) \\[0.3cm]
-            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} + R(t^3) \right)\\
-            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} \right)\\
+\lim_{n\rightarrow\infty}\ \psi_{Z}(t) &=& \lim_{n\rightarrow\infty}\ \left( \psi_{W_i} \left( \dfrac{t}{\sqrt{n}\widehat{\sigma}} \right)^n \right) \\[0.3cm]
+            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} + R(t^3) \right)^n\\
+            &=& \lim_{n\rightarrow\infty}\ \left( 1 + \dfrac{t^2}{2n} \right)^n\\
             &=& e^{\frac{t^2}{2}}
 \end{array}$
 \end{center}
 On a donc une allure d'une fonction génératrice d'une $N(0,1)$
-$$\boxed{\psi_{Z}(t) = e^{\frac{t^2}{2}}\ \ \ \ \text{lorsque }(n\rightarrow\infty)}$$
+$$\boxed{\psi_{Z}(t) \stackrel{n\rightarrow\infty}{\rightarrow} N(0,1)}$$
 
 
 

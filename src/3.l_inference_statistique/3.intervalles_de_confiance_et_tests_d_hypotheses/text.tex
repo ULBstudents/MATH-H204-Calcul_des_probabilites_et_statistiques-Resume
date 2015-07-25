@@ -1,11 +1,19 @@
 \newpage
 \subsection{Intervalles de confiance et tests d'hypothèses}
-\subsubsection{Comparaison des moyennes de deux populations normales de même écart-type $\sigma$ connu}
-
-
-
-
-
+\subsubsection{Comparaison des moyennes de deux populations normales de deux écart-type $\sigma$ connu}
+On commence avec deux moyennes des deux populations :
+$$\bar{X}_1 \sim N \left( \mu_1, \dfrac{\sigma_1}{\sqrt{n_1}} \right)$$
+$$\bar{X}_2 \sim N \left( \mu_2, \dfrac{\sigma_2}{\sqrt{n_2}} \right)$$
+Maintenant nous devons faire une soustraction de deux normales $\bar{X}_1 - \bar{X}_2$, pour faire cela nous prenons l'opposé d'une normale et nous les additionnons $\bar{X}_1 + (-\bar{X}_2)$ grace à la propriété d'opposé d'une normale \ref{propriete-normale-oppose} page~\pageref{propriete-normale-oppose} et la propriété d'addition \ref{propriete-normale-addition} page~\pageref{propriete-normale-addition}.
+\begin{center}
+$\begin{array}{LL}
+\bar{X}_1 + (-\bar{X}_2) &= N \left( \mu_1 - \mu_2, \sqrt{\left(\dfrac{\sigma_1}{\sqrt{n_1}}\right)^2 + \left(\dfrac{\sigma_2}{\sqrt{n_2}}\right)^2} \right)\\
+                      &= N \left( \mu_1 - \mu_2, \sqrt{\dfrac{\sigma_1^2}{n_1} + \dfrac{\sigma_2^2}{n_2}} \right)\\
+\end{array}$
+\end{center}
+Ces deux variables étant indépendantes, on en déduit que
+$$\boxed{T = \dfrac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma_1^2}{n_1} + \dfrac{\sigma_2^2}{n_2}}} \sim N(0,1)}$$
+A tout $\epsilon > 0$, on peut donc associé un nombre tel que $$P\left(-u_{\epsilon/2} \leq T \leq u_{\epsilon/2} \right) = 1 - \epsilon$$ d'où on peut donc déduire un intervalle de confiance pour $\mu_1 - \mu_2$. D'autre part on rejettera l'hypothèse $\mu_1 = \mu_2$ si $$\dfrac{|\bar{x}_1 - \bar{x}_2|}{\sqrt{\dfrac{\sigma_1^2}{n_1} + \dfrac{\sigma_2^2}{n_2}}} > u_{\epsilon/2}$$
 
 
 
@@ -18,7 +26,7 @@
 On commence avec deux moyennes des deux populations :
 $$\bar{X}_1 \sim N \left( \mu_1, \dfrac{\sigma}{\sqrt{n_1}} \right)$$
 $$\bar{X}_2 \sim N \left( \mu_2, \dfrac{\sigma}{\sqrt{n_2}} \right)$$
-Maintenant nous devons faire une soustraction de deux normales $\bar{X}_1 - \bar{X}_2$, pour faire cela nous inversons une normale et nous les additionnons $\bar{X}_1 + (-\bar{X}_2)$ grace à la propriété d'inverse d'une normale \ref{propriete-normale-inverse} page~\pageref{propriete-normale-inverse} et la propriété d'addition \ref{propriete-normale-addition} page~\pageref{propriete-normale-addition}.
+Maintenant nous devons faire une soustraction de deux normales $\bar{X}_1 - \bar{X}_2$, pour faire cela nous prenons l'opposé d'une normale et nous les additionnons $\bar{X}_1 + (-\bar{X}_2)$ grace à la propriété d'opposé d'une normale \ref{propriete-normale-oppose} page~\pageref{propriete-normale-oppose} et la propriété d'addition \ref{propriete-normale-addition} page~\pageref{propriete-normale-addition}.
 \begin{center}
 $\begin{array}{LL}
 \bar{X}_1 + (-\bar{X}_2) &= N \left( \mu_1 - \mu_2, \sqrt{\left(\dfrac{\sigma}{\sqrt{n_1}}\right)^2 + \left(\dfrac{\sigma}{\sqrt{n_2}}\right)^2} \right)\\
@@ -26,11 +34,34 @@ $\begin{array}{LL}
                       &= N \left( \mu_1 - \mu_2, \sigma\sqrt{\dfrac{n_1 + n_2}{n_1 n_2}} \right)\\
 \end{array}$
 \end{center}
+et avec un $\chi^2_{(n_1-1+n_2-1)}$ où $n =$ nombre de degré de libertés
+\begin{center}
+$\begin{array}{LCL}
+??? &=& \text{au début}???\\
+\dfrac{n_1s_1^2 + n_2s_2^2}{\sigma^2} &=& \chi^2_{(n_1+n_2-2)}\\
+\dfrac{1}{\sigma}\sqrt{\dfrac{n_1s_1^2+n_2s_2^2}{\sigma^2}}&=&\dfrac{\sqrt{\chi^2_{(n_1+n_2-2)}}}{\sqrt{n}}\\
+&=& \sqrt{\dfrac{1}{n}\chi^2_{(n_1+n_2-2)}}\\
+??? &=& \text{au final}???\\
+\end{array}$
+\end{center}
 Ces deux variables étant indépendantes, on en déduit que
 \begin{center}
 $\begin{array}{LCL}
-T &=& t_{n_1-1+n_2-1}\\
-&\sim& \underbrace{\dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sigma\sqrt{\dfrac{n_1+n_2}{n_1n_2}}}}_{\displaystyle N(0,1)} \underbrace{\dfrac{1}{\dfrac{1}{\sigma}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}_{\displaystyle\chi_{n_1-1+n_2-1}^2}\\
+T &=& \underbrace{\dfrac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sigma\sqrt{\dfrac{n_1+n_2}{n_1n_2}}}}_{\displaystyle N(0,1)} \underbrace{\dfrac{1}{\dfrac{1}{\sigma}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}_{\displaystyle\chi_{n_1-1+n_2-1}^2}\\
 \end{array}$
 \end{center}
-$$\boxed{T \sim \dfrac{\bar{X}_1 - \bar{X}_2 - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}}}$$
+$$\boxed{T = \dfrac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}} \sim t_{n_1-1+n_2-1}}$$
+A tout $\epsilon > 0$, on peut donc associé un nombre tel que $$P\left(-t_{\epsilon/2} \leq T \leq t_{\epsilon/2} \right) = 1 - \epsilon$$ d'où on peut donc déduire un intervalle de confiance pour $\mu_1 - \mu_2$. D'autre part on rejettera l'hypothèse $\mu_1 = \mu_2$ si $$\dfrac{|\bar{x}_1 - \bar{x}_2|}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1s^2_1+n_2s_2^2}{n_1+n_2-2}}} > t_{\epsilon/2}$$
+
+
+
+
+
+
+
+
+\newpage
+\subsubsection{Comparaison des moyennes de deux populations quelconques}
+Si $n_1$ et $n_2$ sont suffisamment grands (au moins 20), alors $\bar{X}_1 - \bar{X}_2$ a une distribution
+approximativement normale :$$\boxed{\bar{X}_1 - \bar{X}_2 \sim N\left(\mu_1 - \mu_2, \dfrac{\sigma_1^2}{n_1} + \dfrac{\sigma_2^2}{n_2}\right)}$$
+où on remplace $\sigma_1$ et $\sigma_2$ par $s_1$ et $s_2$ lorsqu'ils sont inconnus. On rejette alors l'hypothèse $\mu_1 = \mu_2$ lorsque $$\dfrac{\left|\bar{x}_1 - \bar{x}_2\right|}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}} > u_{\epsilon/2}$$
