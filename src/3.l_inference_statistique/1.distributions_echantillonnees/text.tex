@@ -11,13 +11,13 @@ E(\bar{X}) &=& E\left(\dfrac{1}{n} \sum^n_{i=1} X_i\right)\\
 \end{center}
 et il résulte des propriétés de la variance que :
 \begin{center}
-$\begin{array}{LCL}
-D^2(\bar{X}) &=& D^2\left(\dfrac{1}{n} \sum^n_{i=1} X_i\right)\\[0.5cm]
-\multicolumn{3}{L}{\boxed{D^2(aV+b) = a^2D^2(V)\hspace{0.5cm}\text{ \ref{propriete-variance} page \pageref{propriete-variance}}}}\\[0.3cm]
-&=& \dfrac{1}{n^2} \sum^n_{i=1}D^2(X_i)\\
-&=& \dfrac{1}{n^2} \sum^n_{i=1} \sigma\\
-&=& \dfrac{\sigma^2}{n}\\
-\end{array}$
+	$\begin{array}{LCL}
+		D^2(\bar{X}) &=& D^2\left(\dfrac{1}{n} \sum^n_{i=1} X_i\right)\\[0.5cm]
+		\multicolumn{3}{L}{\boxed{D^2(aV+b) = a^2D^2(V)\hspace{0.5cm}\text{ \ref{distribution-variance} page \pageref{distribution-variance}}}}\\[0.3cm]
+		&=& \dfrac{1}{n^2} \sum^n_{i=1}D^2(X_i)\\
+		&=& \dfrac{1}{n^2} \sum^n_{i=1} \sigma\\
+		&=& \dfrac{\sigma^2}{n}\\
+	\end{array}$
 \end{center}
 
 
@@ -43,25 +43,25 @@ Il résulte de ce qui précède que lorsque la population a une distribution nor
 $$\boxed{\sqrt{n-1}\dfrac{\bar{X}-\mu}{S} \sim t_{(n-1)}}$$
 \paragraph{Démonstration} La définition d'une chi carré $\chi^2_{(n-1)}$ est une somme de normale au carré $\displaystyle\sum_{i=1}^{n-1} (N_i(0,1))^2$.\\Or on a vu que $\chi^2_{(n-1)} = \dfrac{nS^2}{\sigma^2}$, donc
 \begin{center}
-$\begin{array}{LCL}
-\chi^2_{(n-1)} &=& \sum_{i=1}^{n-1} (N_i(0,1))^2\\
-\dfrac{nS^2}{\sigma^2} &=& \sum_{i=1}^{n-1} \left(\dfrac{N_i(0,\sigma)}{\sigma}\right)^2\\
-\dfrac{nS^2}{\sigma^2} &=& \sum_{i=1}^{n-1} \dfrac{(N_i(0,\sigma))^2}{\sigma^2}\\
-nS^2 &=& \sum_{i=1}^{n-1} (N_i(0,\sigma))^2\\
-nS^2 \dfrac{1}{n-1}&=& \dfrac{1}{n-1} \sum_{i=1}^{n-1} (N_i(0,\sigma))^2\\
-\left(\dfrac{nS^2}{n-1}\right)^{\frac{-1}{2}} &=& \left(\dfrac{1}{n-1} \sum_{i=1}^{n-1} (N_i(0,\sigma))^2 \right)^{\frac{-1}{2}}\\
-\dfrac{1}{\sqrt{\dfrac{nS^2}{n-1}}} &=& \dfrac{1}{\sqrt{\dfrac{1}{n-1} \displaystyle\sum_{i=1}^{n-1} (N_i(0,\sigma))^2}}\\
-\dfrac{N(0,\sigma)}{S\sqrt{\dfrac{n}{n-1}}} &=& \dfrac{N(0,\sigma)}{\sqrt{\dfrac{1}{n-1} \displaystyle\sum_{i=1}^{n-1} (N_i(0,\sigma))^2}}\\
-\dfrac{N(0,\sigma)}{S\sqrt{\dfrac{n}{n-1}}} &=& t_{(n-1)}\\
-\end{array}$
+	$\begin{array}{LCL}
+		\chi^2_{(n-1)} &=& \sum_{i=1}^{n-1} (N_i(0,1))^2\\
+		\dfrac{nS^2}{\sigma^2} &=& \sum_{i=1}^{n-1} \left(\dfrac{N_i(0,\sigma)}{\sigma}\right)^2\\
+		\dfrac{nS^2}{\sigma^2} &=& \sum_{i=1}^{n-1} \dfrac{(N_i(0,\sigma))^2}{\sigma^2}\\
+		nS^2 &=& \sum_{i=1}^{n-1} (N_i(0,\sigma))^2\\
+		nS^2 \dfrac{1}{n-1}&=& \dfrac{1}{n-1} \sum_{i=1}^{n-1} (N_i(0,\sigma))^2\\
+		\left(\dfrac{nS^2}{n-1}\right)^{\frac{-1}{2}} &=& \left(\dfrac{1}{n-1} \sum_{i=1}^{n-1} (N_i(0,\sigma))^2 \right)^{\frac{-1}{2}}\\
+		\dfrac{1}{\sqrt{\dfrac{nS^2}{n-1}}} &=& \dfrac{1}{\sqrt{\dfrac{1}{n-1} \displaystyle\sum_{i=1}^{n-1} (N_i(0,\sigma))^2}}\\
+		\dfrac{N(0,\sigma)}{S\sqrt{\dfrac{n}{n-1}}} &=& \dfrac{N(0,\sigma)}{\sqrt{\dfrac{1}{n-1} \displaystyle\sum_{i=1}^{n-1} (N_i(0,\sigma))^2}}\\
+		\dfrac{N(0,\sigma)}{S\sqrt{\dfrac{n}{n-1}}} &=& t_{(n-1)}\\
+	\end{array}$
 \end{center}
 On obtient bien une student $t_{(n-1)}$ à $n-1$ degrés de liberté (\ref{propriete-student} page~\pageref{propriete-student}). On va donc remplacer la normale $N(0,\sigma)$ dans l'équation par :
 \begin{center}
-$\left\{\begin{array}{LCLL}
-\bar{X} &\sim& N\left(\mu,\dfrac{\sigma}{\sqrt{n}}\right)\\
-\dfrac{\bar{X}-\mu}{\dfrac{1}{\sqrt{n}}} &\sim& N(0,\sigma)\\
-\sqrt{n}\left(\bar{X}-\mu\right) &\sim& N(0,\sigma)\\
-\end{array}\right.$
+	$\left\{\begin{array}{LCLL}
+		\bar{X} &\sim& N\left(\mu,\dfrac{\sigma}{\sqrt{n}}\right)\\
+		\dfrac{\bar{X}-\mu}{\dfrac{1}{\sqrt{n}}} &\sim& N(0,\sigma)\\
+		\sqrt{n}\left(\bar{X}-\mu\right) &\sim& N(0,\sigma)\\
+	\end{array}\right.$
 \end{center}
 $$t_{(n-1)} = \dfrac{N(0,\sigma)}{S\sqrt{\dfrac{n}{n-1}}} = \dfrac{\sqrt{n}\left(\bar{X}-\mu\right)}{S\sqrt{\dfrac{n}{n-1}}} = \dfrac{\bar{X}-\mu}{S\dfrac{1}{\sqrt{n-1}}} = \sqrt{n-1}\dfrac{\bar{X}-\mu}{S}$$
 $$\boxed{t_{(n-1)} = \sqrt{n-1}\dfrac{\bar{X}-\mu}{S}}$$

@@ -5,9 +5,24 @@
 
 
 
+\subsubsection{Valeurs typiques}
+\label{valeurs-typiques}
+Aux distributions/densités marginales et conditionnelles, on peut associer les valeurs typiques :
+\begin{tabbing}
+\hspace{5cm}\=\hspace{5cm}\=\kill
+Moyenne marginale $\mu_1$       \> $= \displaystyle\sum_i p_{i.}x_i$            \> $= \displaystyle\int_{-\infty}^\infty xf_1$ \\ 
+Variance marginale $\sigma_1^2$ \> $= \displaystyle\sum_i p_{i.} (x_i-\mu_1)^2$ \> $= \displaystyle\int_{-\infty}^\infty (x-\mu_1)^2 f_1$ \\
+Moyenne conditionnelle          \> $\displaystyle\mu_{1/j} = \sum_i p_{i/j}x_i$              \> $\displaystyle\mu_{1/y_0} = \int_{-\infty}^\infty xf(x-\mu_1)^2f_1$\\
+Variance conditionnelle         \> $\displaystyle\sigma^2_{1/j} = \sum_i p_{i/j}(x_i-\mu_{1/j})^2$ \> $\displaystyle\sigma^2_{1/j} = \int_{-\infty}^\infty (x - \mu_{1/y_0})^2 f(x/y_0)$\\
+\end{tabbing}
 
 
 
+
+
+
+
+\newpage
 \subsubsection{Distribution d'une fonction monotone d'une variable aléatoire $G(V)$}
 $$\boxed{W = G(V)}$$
 \paragraph{Cas discret}
@@ -179,6 +194,7 @@ $\begin{array}{LLL}
 \label{distribution-variance}
 $$\boxed{D^2(aV+b) = a^2D^2(V)}$$
 \paragraph{Démonstration}
+D'après la propriété \ref{valeurs-typiques} page \pageref{valeurs-typiques} : $\displaystyle\sigma_V^2 = D^2(V) = \int_{-\infty}^\infty (x-\mu)^2 f_V(x)dx = E\left((x-\mu)^2\right)$
 \begin{center}
 $\begin{array}{LL}
 D^2(W) &= D^2(aV+b)\\
@@ -198,6 +214,7 @@ D^2(W) &= D^2(aV+b)\\
 \label{distribution-somme-variance}
 $$\boxed{D^2(V+W) = D^2(V)+D^2(W)+2\mu_{11}}$$
 \paragraph{Démonstration}
+D'après la propriété \ref{valeurs-typiques} page \pageref{valeurs-typiques} : $\displaystyle\sigma_V^2 = D^2(V) = \int_{-\infty}^\infty (x-\mu)^2 f_V(x)dx = E\left((x-\mu)^2\right)$
 \begin{center}
 $\begin{array}{LL}
 D^2(Z) &= D^2(V+W)\\
