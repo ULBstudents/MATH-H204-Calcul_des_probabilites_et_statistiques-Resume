@@ -1,4 +1,28 @@
 \newpage
+\subsection{Test d'hypothèse}
+\begin{description}
+	\item [Erreur de première espèce] est de rejeter une hypothèse alors qu'elle est vraie. Le risque $\alpha$ de commettre cette erreur est $\epsilon$ ;
+	\item [Erreur de seconde espèce] est d'accepter une hypothèse alors qu'elle est fausse. Si on accepte une moyenne $\mu_0$ alors qu'elle vaut en réalité $\mu_1$, alors le risque de commettre cette erreur est 
+	\begin{center}
+		$\begin{array}{LCL}
+			\beta &=& P\left(\mu_0 - u_{\beta/2}\dfrac{\sigma}{\sqrt{n}} \leq \bar{X} \leq \mu_0 + u_{\beta/2}\dfrac{\sigma}{\sqrt{n}} \right)\\[0.4cm]
+			\multicolumn{3}{L}{\left\{\text{où }\bar{X} \sim N\left(\mu_1,\dfrac{\sigma}{\sqrt{n}}\right)\Rightarrow\dfrac{\bar{X}-\mu_1}{\dfrac{\sigma}{\sqrt{n}}}\sim N(0,1)\right.}\\[0.7cm]
+			&=& P\left(\mu_0 - u_{\beta/2}\dfrac{\sigma}{\sqrt{n}} \leq N(0,1)\dfrac{\sigma}{\sqrt{n}}+\mu_1 \leq \mu_0 + u_{\beta/2}\dfrac{\sigma}{\sqrt{n}} \right)\\
+			&=& P\left(\dfrac{\mu_0 - \mu_1}{\sigma}\sqrt{n} - u_{\beta/2} \leq N(0,1) \leq \dfrac{\mu_0 - \mu_1}{\sigma}\sqrt{n} + u_{\beta/2}  \right)\\
+		\end{array}$
+	\end{center}
+	\item [Puissance d'un test] est la valeur $1 - \beta$, c'est à dire la probabilité de rejeter l'hypothèse alors qu'elle est fausse.
+\end{description}
+
+
+
+
+
+
+
+
+
+\newpage
 \subsection{Intervalles de confiance et tests d'hypothèses}
 \subsubsection{Comparaison des moyennes de deux populations normales de deux écart-type $\sigma$ connu}
 On commence avec deux moyennes des deux populations :
@@ -14,6 +38,9 @@ $\begin{array}{LL}
 Ces deux variables étant indépendantes, on en déduit que
 $$\boxed{T = \dfrac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma_1^2}{n_1} + \dfrac{\sigma_2^2}{n_2}}} \sim N(0,1)}$$
 A tout $\epsilon > 0$, on peut donc associé un nombre tel que $$P\left(-u_{\epsilon/2} \leq T \leq u_{\epsilon/2} \right) = 1 - \epsilon$$ d'où on peut donc déduire un intervalle de confiance pour $\mu_1 - \mu_2$. D'autre part on rejettera l'hypothèse $\mu_1 = \mu_2$ si $$\dfrac{|\bar{x}_1 - \bar{x}_2|}{\sqrt{\dfrac{\sigma_1^2}{n_1} + \dfrac{\sigma_2^2}{n_2}}} > u_{\epsilon/2}$$
+
+
+
 
 
 
@@ -52,6 +79,8 @@ T &=& \underbrace{\dfrac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sigma\sqrt{
 \end{center}
 $$\boxed{T = \dfrac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1S^2_1+n_2S_2^2}{n_1+n_2-2}}} \sim t_{n_1-1+n_2-1}}$$
 A tout $\epsilon > 0$, on peut donc associé un nombre tel que $$P\left(-t_{\epsilon/2} \leq T \leq t_{\epsilon/2} \right) = 1 - \epsilon$$ d'où on peut donc déduire un intervalle de confiance pour $\mu_1 - \mu_2$. D'autre part on rejettera l'hypothèse $\mu_1 = \mu_2$ si $$\dfrac{|\bar{x}_1 - \bar{x}_2|}{\sqrt{\dfrac{n_1+n_2}{n_1n_2}}\sqrt{\dfrac{n_1s^2_1+n_2s_2^2}{n_1+n_2-2}}} > t_{\epsilon/2}$$
+
+
 
 
 
