@@ -8,7 +8,7 @@
 
 
 
-\subsubsection{Distribution d'une fonction monotone d'une variable aléatoire}
+\subsubsection{Distribution d'une fonction monotone d'une variable aléatoire $G(V)$}
 $$\boxed{W = G(V)}$$
 \paragraph{Cas discret}
 \begin{center}
@@ -43,7 +43,8 @@ $$\boxed{W = G(V)}$$
 
 
 \newpage
-\subsubsection{Distribution de la somme de deux variables aléatoires}\label{distribution-somme-variables-aleatoires}
+\subsubsection{Distribution de la somme de deux variables aléatoires $V+W$}
+\label{distribution-somme-variables-aleatoires}
 $$\boxed{Z = V+W}$$
 \paragraph{Cas discret}
 \begin{center}
@@ -81,8 +82,9 @@ $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\inft
 
 
 \newpage
-\subsubsection{Distribution du produit de deux variables aléatoires}\label{distribution-produit-variables-aleatoires}
-$$\boxed{Z = VW}$$
+\subsubsection{Distribution du produit de deux variables aléatoires $V.W$}
+\label{distribution-produit-variables-aleatoires}
+$$\boxed{Z = V.W}$$
 \paragraph{Cas continu}
 \begin{center}
 	$\begin{array}{LLL}
@@ -115,8 +117,8 @@ $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\inft
 
 
 \newpage
-\subsubsection{Distribution de la somme des espérances}
-$$\boxed{Z = V+W}$$
+\subsubsection{Distribution de la somme des espérances $E(V+W)$}
+$$\boxed{E(Z) = E(V+W)}$$
 
 \paragraph{Demonstration}
 \begin{center}
@@ -146,8 +148,8 @@ $$\boxed{Z = V+W}$$
 
 
 \newpage
-\subsubsection{Distribution du produit des espérances}
-$$\boxed{Z = V.W}$$
+\subsubsection{Distribution du produit des espérances $E(V.W)$}
+$$\boxed{E(Z) = E(V.W)}$$
 
 \paragraph{Demonstration} Uniquement pour des variables indépendantes
 \begin{center}
@@ -164,5 +166,45 @@ $\begin{array}{LLL}
 &= \int_{-\infty}^\infty\int_{-\infty}^\infty \xi\ f_V(\xi)f_W(\eta)\ d\xi\ d\eta \int_{-\infty}^\infty\int_{-\infty}^\infty \eta\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
 &= \int_{-\infty}^\infty \xi\ f_{V}(\xi)\ d\xi\ \int_{-\infty}^\infty \eta\ f_{W}(\eta)\ d\eta\\
 &= E(V).E(W)\\
+\end{array}$
+\end{center}
+
+
+
+
+
+
+\newpage
+\subsubsection{Variance d'une variable aléatoire $D^2(aV+b)$}
+\label{distribution-variance}
+$$\boxed{D^2(aV+b) = a^2D^2(V)}$$
+\paragraph{Démonstration}
+\begin{center}
+$\begin{array}{LL}
+D^2(W) &= D^2(aV+b)\\
+       &= E\left((W-(a\mu+b))^2\right)\\
+       &= E\left((aV+b-a\mu-b)^2\right)\\
+       &= E\left(a^2(V-\mu)^2\right)\\
+       &= a^2D^2(V)\\
+\end{array}$
+\end{center}
+
+
+
+
+
+
+\subsubsection{Variance de la somme de deux variables aléatoires $D^2(V+W)$}
+\label{distribution-somme-variance}
+$$\boxed{D^2(V+W) = D^2(V)+D^2(W)+2\mu_{11}}$$
+\paragraph{Démonstration}
+\begin{center}
+$\begin{array}{LL}
+D^2(Z) &= D^2(V+W)\\
+       &= E\left((Z-(\mu_V+\mu_W))^2\right)\\
+       &= E\left(((V+W)-(\mu_V+\mu_W))^2\right)\\
+       &= E\left(((V-\mu_V)+(W-\mu_W))^2\right)\\
+       &= E\left((V-\mu_V)^2\right) + E\left((V-\mu_W)^2\right) + 2E\left((V-\mu_V)(W-\mu_W)\right)\\
+       &= D^2(V)+D^2(W)+2\mu_{11}\\
 \end{array}$
 \end{center}

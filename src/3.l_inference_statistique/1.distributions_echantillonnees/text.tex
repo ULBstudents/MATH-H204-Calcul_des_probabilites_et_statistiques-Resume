@@ -1,7 +1,39 @@
 \subsection{Distributions échantillonnées}
-
 \subsubsection{Distribution échantillonnées de la moyenne $\bar{X}$}
+Supposons que la distribution de la population ait une moyenne $\mu$ et un écart-type $\sigma$. Il en est donc de même pour les distributions échantillonnées de $X_1, X_2,\ \dots\ , X_n$ et il résulte alors des propriétés de l’espérance mathématique que :
+\begin{center}
+$\begin{array}{LCL}
+E(\bar{X}) &=& E\left(\dfrac{1}{n} \sum^n_{i=1} X_i\right)\\
+&& \dfrac{1}{n} \sum^n_{i=1} E(X_i)\\
+&& \dfrac{1}{n} \sum^n_{i=1} \mu\\
+&& \mu
+\end{array}$
+\end{center}
+et il résulte des propriétés de la variance que :
+\begin{center}
+$\begin{array}{LCL}
+D^2(\bar{X}) &=& D^2\left(\dfrac{1}{n} \sum^n_{i=1} X_i\right)\\[0.5cm]
+\multicolumn{3}{L}{\boxed{D^2(aV+b) = a^2D^2(V)\hspace{0.5cm}\text{ \ref{propriete-variance} page \pageref{propriete-variance}}}}\\[0.3cm]
+&=& \dfrac{1}{n^2} \sum^n_{i=1}D^2(X_i)\\
+&=& \dfrac{1}{n^2} \sum^n_{i=1} \sigma\\
+&=& \dfrac{\sigma^2}{n}\\
+\end{array}$
+\end{center}
+
+
+
+
+
+
+
+
 \subsubsection{Distribution échantillonnées de la variance $S^2$}
+
+
+
+
+
+
 
 
 
