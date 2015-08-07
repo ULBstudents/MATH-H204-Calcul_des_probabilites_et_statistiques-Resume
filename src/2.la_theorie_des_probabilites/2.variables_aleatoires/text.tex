@@ -41,10 +41,18 @@ $$\boxed{W = G(V)}$$
     f_W(x)    &=& \multicolumn{2}{C}{F_W'(x)}\\
 	          &=& \multicolumn{2}{C}{( F_W(x) )'}\\
               &=& \multicolumn{2}{C}{( P(W \leq x) )'}\\
-		      &=& \multicolumn{2}{C}{( P(G(V) \leq x) )'}\\
-		      &=& ( P(V \leq G^{-1}(x)) )' & ( P(V \geq G^{-1}(x)) )'\\
-		      &=& ( F_V(G^{-1}(x)) )' & ( 1-F_V(G^{-1}(x)) )'\\
-              &=& f_V(G^{-1}(x)) \dfrac{1}{G'(G^{-1}(x))}&f_V(G^{-1}(x)) \dfrac{-1}{G'(G^{-1}(x))}
+		      &=& \multicolumn{2}{C}{( P(G(V) \leq x) )'}\\[0.5cm]
+		      &=& \left( P\left(V \leq G^{-1}(x) \right) \right)' & \left( P\left(V \geq G^{-1}(x) \right) \right)'\\[0.3cm]
+		      &=& \left( F_V\left( G^{-1}(x) \right) \right)' & \left( 1-F_V\left( G^{-1}(x) \right) \right)'\\[0.3cm]
+              &=& f_V\left( G^{-1}(x) \right) \left( G^{-1}(x) \right)' & -f_V\left( G^{-1}(x) \right) \left( G^{-1}(x) \right)'\\[0.5cm]
+\multicolumn{4}{L}{\text{Rappel : }\left\{
+\begin{array}{CCC}
+	G\left(G^{-1}(x)\right) &=& x\\
+    \left( G \left( G^{-1}(x) \right) \right)' &=& (x)'\\
+    G'\left( G^{-1}(x) \right)\ \left( G^{-1}(x) \right)' &=& 1\\
+    \left( G^{-1}(x) \right)' &=& \frac{1}{G'\left( G^{-1}(x) \right)}\\
+\end{array}\right.}\\[1.5cm]
+              &=& f_V\left(G^{-1}(x)\right) \dfrac{1}{G'\left(G^{-1}(x)\right)}&f_V\left(G^{-1}(x)\right) \dfrac{-1}{G'\left(G^{-1}(x)\right)}
 	\end{array}$
 \end{center}
 
@@ -133,7 +141,7 @@ $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\inft
 
 \newpage
 \subsubsection{Distribution de la somme des espérances $E(V+W)$}
-$$\boxed{E(Z) = E(V+W)}$$
+$$\boxed{E(V+W) = E(V)+E(W)}$$
 
 \paragraph{Demonstration}
 \begin{center}
@@ -164,7 +172,7 @@ $$\boxed{E(Z) = E(V+W)}$$
 
 \newpage
 \subsubsection{Distribution du produit des espérances $E(V.W)$}
-$$\boxed{E(Z) = E(V.W)}$$
+$$\boxed{E(V.W) = E(V).E(W)}$$
 
 \paragraph{Demonstration} Uniquement pour des variables indépendantes
 \begin{center}

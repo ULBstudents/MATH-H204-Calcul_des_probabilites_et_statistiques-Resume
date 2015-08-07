@@ -22,7 +22,7 @@ $$m_{11}=\frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (x_i-\bar{x})(y_j-\bar
 
 \begin{align*}
 	0 &\leq \alpha\\
-	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} \underbrace{ ( u (x_i-\bar{x})(y_j-\bar{y}))^2 }_\text{$^2$ car toujours $\geq 0$} \\
+	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} \underbrace{ ( u (x_i-\bar{x})+(y_j-\bar{y}))^2 }_\text{$^2$ car toujours $\geq 0$} \\
 	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (u^2(x_i-\bar{x})^2 + 2u(x_i-\bar{x})(y_j-\bar{y})+(y_j-\bar{y})^2)\\
 	  &\leq u^2s_1^2+2u\ m_{11}+s_2^2
 \end{align*}
@@ -43,7 +43,7 @@ $$\boxed{|m_{11}| \leq s_1 s_2}$$
 
 La valeur absolue de la covariance est maximale et vaut $|m_{11}| = s_1s_2$.
 
-Si les points observés se trouvent sur une droite $ax+bx+c=0$, on a $ax_i+by_i+c=0$.
+Si les points observés se trouvent sur une droite non parallèle aux axes $ax+bx+c=0$, on a $ax_i+by_i+c=0$.
 
 On multiplie par $\frac{n_{ij}}{n}$ et on somme sur $ij$.
 

@@ -54,7 +54,7 @@ La probabilité conditionnelle respecte les axiomes de la théorie des probabili
 		X\cap Y\neq\emptyset &\Rightarrow& P(X\cup Y |A)\\
 		&&\dfrac{P((X\cup Y)\cap A)}{P(A)}\\
 		&&\dfrac{P((X\cap A)\cup (Y\cap A))}{P(A)}\\
-		&&\dfrac{P(X\cap A) + (Y\cap A)}{P(A)}\\
+		&&\dfrac{P(X\cap A) + P(Y\cap A)}{P(A)}\\
 		&&\dfrac{P(X|A)P(A) + P(Y|A)P(A)}{P(A)}\\
 		&&P(X|A) + P(Y|A)\\
 	\end{array}$
@@ -72,7 +72,7 @@ $$P(A|B) = P(A|\bar{B})$$
 	$\begin{array}{CCC}
 		P(A|B)                   &=& P(A|\bar{B})\\
 		\dfrac{P(A\cap B)}{P(B)} &=& \dfrac{P(A\cap\bar{B})}{P(\bar{B})}\\
-		\dfrac{P(A) P(B)}{P(B)}  &=& \dfrac{P(A)P(B)}{P(\bar{B})}\\
+		\dfrac{P(A) P(B)}{P(B)}  &=& \dfrac{P(A)P(\bar{B})}{P(\bar{B})}\\
 		P(A)                     &=& P(A)\\
 	\end{array}$
 \end{center}
