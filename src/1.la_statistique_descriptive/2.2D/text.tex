@@ -21,8 +21,7 @@ La covariance est le moment d'ordre (1,1):
 $$m_{11}=\frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (x_i-\bar{x})(y_j-\bar{y})$$
 
 \begin{align*}
-	0 &\leq \alpha\\
-	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} \underbrace{ ( u (x_i-\bar{x})+(y_j-\bar{y}))^2 }_\text{$^2$ car toujours $\geq 0$} \\
+	0 &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} \underbrace{ ( u (x_i-\bar{x})+(y_j-\bar{y}))^2 }_\text{$^2$ car toujours $\geq 0$} \\
 	  &\leq \frac{1}{n} \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (u^2(x_i-\bar{x})^2 + 2u(x_i-\bar{x})(y_j-\bar{y})+(y_j-\bar{y})^2)\\
 	  &\leq u^2s_1^2+2u\ m_{11}+s_2^2
 \end{align*}
@@ -41,9 +40,9 @@ $$\boxed{|m_{11}| \leq s_1 s_2}$$
 
 \paragraph{La covariance maximale $|m_{11}| = s_1s_2$}
 
-La valeur absolue de la covariance est maximale et vaut $|m_{11}| = s_1s_2$.
+La valeur absolue de la covariance est maximale si elle vaut $|m_{11}| = s_1s_2$.
 
-Si les points observés se trouvent sur une droite non parallèle aux axes $ax+bx+c=0$, on a $ax_i+by_i+c=0$.
+Si les points observés se trouvent sur une droite non parallèle aux axes $ax+by+c=0$, on a $ax_i+by_i+c=0$.
 
 On multiplie par $\frac{n_{ij}}{n}$ et on somme sur $ij$.
 
@@ -54,8 +53,7 @@ On multiplie par $\frac{n_{ij}}{n}$ et on somme sur $ij$.
 \intertext{On soustrait $ax_i+by_j+c=0$ par $a\bar{x}+b\bar{y}+c = 0$.}
    &= a(x_i-\bar{x})+b(y_j+\bar{y})\\
 \intertext{On utilise $u_0=\frac{a}{b}$}
-   &= u_0b(x_i-\bar{x})+\frac{a}{u_0}(y_j-\bar{y})\\
-   &= u_0b(x_i-\bar{x})+\frac{u_0b}{u_0}(y_j-\bar{y})\\
+   &= u_0b(x_i-\bar{x})+b\frac{a}{u_0}(y_j-\bar{y})\\
    &= u_0(x_i-\bar{x})+(y_j-\bar{y})
 \end{align*}
 
@@ -82,7 +80,7 @@ $$\boxed{r=\frac{m_{11}}{s_1s_2}}$$
 	\item $r$ sans dimensions ;
 	\item $r' = r$ ;
 	\item $-1 \leq r \leq 1$ ;
-	\item $|r| = 1$ car les points observés se trouvent sur une droite non parallèle aux axes.
+	\item $|r| = 1$ ssi les points observés se trouvent sur une droite non parallèle aux axes.
 \end{enumerate}
 \paragraph{Représentation de la droite de régression en fonction du coefficient de corrélation}
 \begin{center}
@@ -116,29 +114,29 @@ La droite de régression de y en x est la droite qui minimise la somme des carr�
 $$\boxed{g(a,b) = \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij} (y_j - a\ x_i - b)^2}$$
 Dérivée par rapport à $a$ :
 \begin{center}
-	$\begin{array}{RL}
-		0 &= \left.g(a,b)\right|_a\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ 2(y_j - a\ x_i-b)(-x_i)\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} -2n_{ij}\ x_i(y_j - a\ x_i - b)\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i(-y_j + a\ x_i + b)\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} -n_{ij}\ x_i\ y_j + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ a\ x_i^2 + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ b\ x_i\\
-		  &= -1 \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j + a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i^2 + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\\
-		  \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j  &= \underbrace{a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i^2 + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i}_\text{Il n'existe aucun terme en $j$}\\
-		\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j  &= \overbrace{a \sum_{i=1}^{p} n_{i.}\ x_i^2 + b \sum_{i=1}^{p} n_{i.}\ x_i}^\text{Donc on peut supprimer la somme $\sum_{j=1}^{q}$}
+	$\begin{array}{CCL}
+		                & 0 &= \left.g(a,b)\right|_a\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ 2(y_j - a\ x_i-b)(-x_i)\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} -2n_{ij}\ x_i(y_j - a\ x_i - b)\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i(-y_j + a\ x_i + b)\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} -n_{ij}\ x_i\ y_j + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ a\ x_i^2 + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ b\ x_i\\
+		\Leftrightarrow & 0 &= -1 \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j + a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i^2 + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\\
+		\Leftrightarrow &\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j  &= \underbrace{a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i^2 + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i}_\text{Il n'existe aucun terme en $j$}\\
+		\Leftrightarrow &\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j  &= \overbrace{a \sum_{i=1}^{p} n_{i.}\ x_i^2 + b \sum_{i=1}^{p} n_{i.}\ x_i}^\text{Donc on peut supprimer la somme $\sum_{j=1}^{q}$}
 	\end{array}$
 \end{center}
 $$\boxed{\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i\ y_j = a \sum_{i=1}^{p} n_{i.}\ x_i^2 + b \sum_{i=1}^{p} n_{i.}\ x_i}$$
 Dérivée par rapport à $b$ :
 \begin{center}
-	$\begin{array}{RL}
-		0 &= \left.g(a,b)\right|_b\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ 2(y_j - a\ x_i-b)(-1)\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} -2n_{ij}(y_j - a\ x_i - b)\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}(-y_j + a\ x_i + b)\\
-		  &= \sum_{i=1}^{p} \sum_{j=1}^{q} -n_{ij}\ y_j + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ a\ x_i + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ b\\
-		  &= -1 \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ y_j + a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\\
-		\sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ y_j &= a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\\
-		n\ \bar{y} &= a\ n\ \bar{x} + b\ n
+	$\begin{array}{CCL}
+		                & 0 &= \left.g(a,b)\right|_b\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ 2(y_j - a\ x_i-b)(-1)\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} -2n_{ij}(y_j - a\ x_i - b)\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}(-y_j + a\ x_i + b)\\
+		\Leftrightarrow & 0 &= \sum_{i=1}^{p} \sum_{j=1}^{q} -n_{ij}\ y_j + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ a\ x_i + \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ b\\
+		\Leftrightarrow & 0 &= -1 \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ y_j + a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\\
+		\Leftrightarrow & \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ y_j &= a \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\ x_i + b \sum_{i=1}^{p} \sum_{j=1}^{q} n_{ij}\\
+		\Leftrightarrow & n\ \bar{y} &= a\ n\ \bar{x} + b\ n
 	\end{array}$
 \end{center}
 $$\boxed{n\ \bar{y} = a\ n\ \bar{x} + b\ n}$$
