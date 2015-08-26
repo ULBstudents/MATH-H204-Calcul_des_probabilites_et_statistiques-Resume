@@ -120,9 +120,9 @@ $$\boxed{Z = V.W}$$
 				\eta & = \dfrac{v}{u}\\[0.2cm]
 				J    & = \left(\begin{array}{CC}\dfrac{\delta\xi}{\delta u}&\dfrac{\delta \xi}{\delta v}\\[0.5cm]\dfrac{\delta\eta}{\delta u}&\dfrac{\delta\eta}{\delta v}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]\dfrac{-1}{u^2}&\dfrac{1}{u}\end{array}\right) = 1.\dfrac{1}{u} - 0.\dfrac{-1}{u^2} = \dfrac{1}{u}
 			\end{array}
-			\right.}\\
-		&= \iint\limits_{v\leq x} f_{(V,W)}(u,v-u)\ du\ dv\\
-		&= \int\limits_{-\infty}^x\ dv \int\limits_{-\infty}^{+\infty} f_{(V,W)}(u,v-u)\ du
+			\right.}\\[0.5cm]
+		&= \iint\limits_{v\leq x} f_{(V,W)}\left(u,\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ du\ dv\\
+		&= \int\limits_{-\infty}^x\ dv \int\limits_{-\infty}^{+\infty} f_{(V,W)}\left(u,\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ du
 	\end{array}$
 \end{center}
 $$\boxed{f_Z(x) = \frac{\delta F_z(x)}{\delta x} = \int\limits_{-\infty}^{+\infty} f_{(V,W)}\left(u,\dfrac{x}{u}\right).\left|\dfrac{1}{u}\right|\ du }$$
@@ -185,7 +185,9 @@ $\begin{array}{LLL}
 	x & = \xi\eta\\[0.2cm]
 	J & = \left(\begin{array}{CC}\dfrac{\delta u}{\delta\xi}&\dfrac{\delta u}{\delta\eta}\\[0.5cm]\dfrac{\delta x}{\delta\xi}&\dfrac{\delta x}{\delta\eta}\end{array}\right) = \left(\begin{array}{CC}1&0\\[0.2cm]\eta&\xi\end{array}\right) = 1.\xi-0.\eta = \xi\\
 \end{array}\right.}\\
-&= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi\eta)\ f_{(V,W)}(\xi,\eta)\left|\xi\right|\ d\xi\ d\eta\\
+&= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi\eta)\ f_{(V,W)}(\xi,\eta)\left|\dfrac{1}{u}\right|\left|\xi\right|\ d\xi\ d\eta\\
+&= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi\eta)\ f_{(V,W)}(\xi,\eta)\left|\dfrac{1}{u}\right|\left|u\right|\ d\xi\ d\eta\\
+&= \int_{-\infty}^\infty\int_{-\infty}^\infty (\xi\eta)\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
 &= \int_{-\infty}^\infty\int_{-\infty}^\infty \xi\ f_V(\xi)f_W(\eta)\ d\xi\ d\eta \int_{-\infty}^\infty\int_{-\infty}^\infty \eta\ f_{(V,W)}(\xi,\eta)\ d\xi\ d\eta\\
 &= \int_{-\infty}^\infty \xi\ f_{V}(\xi)\ d\xi\ \int_{-\infty}^\infty \eta\ f_{W}(\eta)\ d\eta\\
 &= E(V).E(W)\\
