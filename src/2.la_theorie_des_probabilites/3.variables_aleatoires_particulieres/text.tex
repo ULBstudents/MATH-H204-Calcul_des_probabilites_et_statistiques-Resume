@@ -9,14 +9,92 @@
 	\end{tabular}
 \end{center}
 
-
-
 \subsubsection{Variable binomiale$\mathcal{B}(n,p)$}
+
+
+\newpage
 \subsubsection{Variable de Poisson $\mathcal{P}_\lambda$}
+Une variable de poisson est uniquement une binomiale dont la répétition $n$ est "grand" ($n\geq30$) et que la probabilité $p$ est "petit" ($p\leq0,1$).
+
+\begin{center}
+$\begin{array}{lll}
+P(V=k)&=\left(\begin{array}{c}n\\k\end{array}\right)&p^k(1-p)^{n-k}\\[0.3cm]
+      &=\dfrac{n!}{k!(n-k)!}&p^k(1-p)^{n-k}\\[0.3cm]
+      &=\dfrac{1}{k!}n(n-1)(n-2)\dots(n-k-1)&p^k(1-p)^{n-k}\\[0.3cm]
+      &=\dfrac{1}{k!}n^k\left(1-\dfrac{1}{n}\right)\left(1-\dfrac{2}{n}\right)\dots\left(1-\dfrac{k-1}{n}\right)&p^k(1-p)^{n-k}\\[0.3cm]
+      &=\dfrac{1}{k!}n^k\left(1-\dfrac{1}{n}\right)\left(1-\dfrac{2}{n}\right)\dots\left(1-\dfrac{k-1}{n}\right)&\dfrac{p^k\left(1-p\right)^{n}}{(1-p)^k}\\[0.3cm]
+      &=\dfrac{1}{k!}n^k\left(1-\dfrac{1}{n}\right)\left(1-\dfrac{2}{n}\right)\dots\left(1-\dfrac{k-1}{n}\right)&\dfrac{p^k\left(1-\dfrac{np}{n}\right)^{n}}{(1-p)^k}\\[0.3cm]
+\end{array}$
+\end{center}
+Sous une autre forme :
+\begin{center}
+$\begin{array}{llcl}
+P(V=k)&=\dfrac{n^kp^k}{k!}&\left(1-\dfrac{np}{n}\right)^n&\dfrac{\left(1-\dfrac{1}{n}\right)\left(1-\dfrac{2}{n}\right)\dots\left(1-\dfrac{k-1}{n}\right)}{(1-p)^k}\\[0.3cm]
+&=\dfrac{(np)^k}{k!}&e^{-\lambda}&\dfrac{\left(1-\dfrac{1}{n}\right)\left(1-\dfrac{2}{n}\right)\dots\left(1-\dfrac{k-1}{n}\right)}{(1-p)^k}\\[0.3cm]
+\end{array}$
+\end{center}
+Et donc quand $n\rightarrow\infty$ :
+\begin{center}
+$P(V=k)\stackrel{n\rightarrow\infty}{=}\dfrac{\lambda^k}{k!}e^{-\lambda}\dfrac{(1-1)(1-1)\dots(1-1)}{(1-p)^k}$
+\end{center}
+$$\boxed{P(V=k)\stackrel{n\rightarrow\infty}{=}\dfrac{\lambda^k}{k!}e^{-\lambda}=P_\lambda}$$
+
+
+\paragraph{Calcul de la moyenne $E(P_\lambda)$}
+\begin{center}
+$\begin{array}{ll}
+\mu&=\displaystyle\sum_{k=0}^{\infty}x_ip_i\\
+&=\displaystyle\sum_{k=0}^{\infty}k\dfrac{\lambda^k}{k!}e^{-\lambda}\\
+&=\displaystyle\sum_{k=0}^{\infty}\dfrac{\lambda^{k-1}\lambda}{(k-1)!}e^{-\lambda}\\
+&=\displaystyle\lambda e^{-\lambda}\sum_{k=0}^{\infty}\dfrac{\lambda^{k-1}}{(k-1)!}\\
+&=\displaystyle\lambda e^{-\lambda}e^{\lambda}\\
+&=\lambda
+\end{array}$
+\end{center}
+
+
+\paragraph{Calcul de la variance $D^2(P_\lambda)$}
+\begin{align*}
+\sigma^2&=\displaystyle\sum_{k=0}^{\infty}x_i^2p_i-\mu^2\\
+&=\displaystyle\sum_{k=0}^{\infty}k^2\dfrac{\lambda^k}{k!}e^{-\lambda}-\mu^2\\
+\intertext{On remplace $k^2$ par $k(k-1)+k$}
+&=\displaystyle\sum_{k=0}^{\infty}k(k-1)\dfrac{\lambda^k}{k!}e^{-\lambda}+\sum_{k=0}^{\infty}k\dfrac{\lambda^k}{k!}e^{-\lambda}-\mu^2\\
+&=\displaystyle\sum_{k=0}^{\infty}k(k-1)\dfrac{\lambda^k}{k!}e^{-\lambda}+\mu-\mu^2\\
+&=\displaystyle\sum_{k=0}^{\infty}k(k-1)\dfrac{\lambda^{k-2}\lambda^2}{k(k-1)(k-2)!}e^{-\lambda}+\mu-\mu^2\\
+&=\displaystyle\lambda^2e^{-\lambda}\sum_{k=0}^{\infty}\dfrac{\lambda^{k-2}}{(k-2)!}+\mu-\mu^2\\
+&=\displaystyle\lambda^2e^{-\lambda}e^\lambda+\mu-\mu^2\\
+&=\displaystyle\lambda^2+\lambda-\lambda^2\\
+&=\lambda
+\end{align*}
+
+
+
+\paragraph{Calcul de la fonction génératrice $\psi(t)$}
+\begin{align*}
+(t)&=\displaystyle\sum_{k=0}^{\infty}e^{tk}e^{-\lambda}\dfrac{\lambda^k}{k!}\\
+&=e^{-\lambda}\sum_{k=0}^{\infty}\dfrac{(\lambda e^t)^k}{k!}\\
+&=e^{-\lambda}e^{\lambda e^t}\\
+&=e^{\lambda(e^t-1)}\\
+\end{align*}
+
+
+
+\paragraph{Calcul de la stabilité}
+\begin{align*}
+\psi_{1+2}(t)&=\psi_1(t)\psi_2(t)\\
+&=e^{\lambda_1(e^t-1)}e^{\lambda_2(e^t-1)}\\
+&=e^{\lambda_1(e^t-1)(\lambda_1+\lambda_2)}\\
+\end{align*}
+La variable est bien stable.
+
+
+
+
+
+
+\newpage
 \subsubsection{Variable exponentielle négative}
 \subsubsection{Variable Normale $\mathcal{N}(\mu,\sigma)$}
-
-
 
 
 \paragraph{Propriété d'opposé}\label{propriete-normale-oppose}
@@ -39,10 +117,6 @@ $\begin{array}{LL}
 \end{center}
 On obtient bien une fonction génératrice d'une normale de paramètres $(\mu_1+\mu_2)$ et $\sqrt{\sigma_1^2+\sigma_2^2}$.
 $$\boxed{N(\mu_1,\sigma_1) + N(\mu_2,\sigma_2) = N\left(\mu_1+\mu_2,\sqrt{\sigma_1^2+\sigma_2^2}\right)}$$
-
-
-
-
 
 
 
