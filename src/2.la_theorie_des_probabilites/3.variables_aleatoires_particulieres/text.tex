@@ -4,13 +4,41 @@
 \subsubsection{Schéma de relation entre les variables aléatoires}
 \begin{center}
 	\begin{tabular}{ccc}
-		\includegraphics[width=0.3\textwidth]{images/schema_relation_va.pdf}\\
+		\includegraphics[width=0.5\textwidth]{images/schema_relation_va.pdf}\\
 		Schéma de relation entre les différentes variables aléatoires
 	\end{tabular}
 \end{center}
 
-\subsubsection{Variable binomiale$\mathcal{B}(n,p)$}
 
+\newpage
+\subsubsection{Variable binomiale$\mathcal{B}(n,p)$}
+Une variable binomiale est une expérience avec $n$ répétitions. On veut savoir le nombre $k$ de fois qu'un évènement $A$, de probabilité p, se produit :
+
+\begin{center}
+$\begin{array}{llll}
+P(V=k)&=\left(\begin{array}{c}n\\k\end{array}\right)&p(\text{obtenir $k$ fois $A$})&p(\text{$n-k$ fois ne pas obtenir $A$})\\
+      &=\left(\begin{array}{c}n\\k\end{array}\right)&p^k&(1-p)^{n-k}\\[0.3cm]
+      &=\dfrac{n!}{k!(n-k)!}&p^k&(1-p)^{n-k}\\
+\end{array}$
+\end{center}
+La variable $V$ est appelée variable binomiale de paramètre $p$ et d'exposant $n$ et est notée $B(n,p)$. C'est la somme de $n$ de variable indicatrices.
+
+
+\paragraph{Calcul de la moyenne $E(B(n,p))$}
+\begin{align*}
+\mu &=\displaystyle\sum_{k=0}^{n} x_ip_i\\
+    &=\displaystyle\sum_{k=0}^{n} k \left(\begin{array}{c}n\\k\end{array}\right)p^k(1-p)^{n-k}\\
+    &=\displaystyle\sum_{k=1}^{n} \dfrac{n!}{(k-1)!(n-k)!}p^k(1-p)^{n-k}\\
+\intertext{On remplace $k-1$ par $l$ :}
+    &=\displaystyle\sum_{l=0}^{n-1}  \dfrac{n(n-1)!}{l!(n-l-1)!}p^{l+1}(1-p)^{n-l-1}\\
+    &=np\displaystyle\sum_{l=0}^{n-1} \left(\begin{array}{c}n-1\\l\end{array}\right)p^{l}(1-p)^{n-l-1}\\
+    &=np(p+(1-p))^{n-1}\\
+    &=np\\
+\end{align*}
+
+\paragraph{Calcul de la variance $D^2(B(n,p))$}
+\paragraph{Calcul de la fonction génératrice $\psi(t)$}
+\paragraph{Calcul de la stabilité}
 
 \newpage
 \subsubsection{Variable de Poisson $\mathcal{P}_\lambda$}
