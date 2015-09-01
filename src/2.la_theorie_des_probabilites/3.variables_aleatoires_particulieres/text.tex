@@ -49,9 +49,9 @@ $$\boxed{\psi_x(t) = E(e^{tx}}$$
 \paragraph{Calcul de la moyenne $E(B(n,p))$ via la fonction génératrice $\psi(t)$}
 $$\boxed{\psi_x(t) = (pe^t+(1-p))^n}$$
 \begin{align*}
-E(X) &= \psi_x(t)|_{t=0}\\
-     &= ( e^tp + (1-p))^n|_{t=0}\\
-     &= n ( e^tp + (1-p) )^{n-1}e^tp&\text{pour } t=0\\
+E(X) &= \dfrac{\delta}{\delta t} \psi_x(t)\ |_{t=0}\\
+     &= \dfrac{\delta}{\delta t} ( pe^t + (1-p))^n\ |_{t=0}\\
+     &= n ( pe^t + (1-p) )^{n-1} pe^t\ |_{t=0}\\
      &= n ( p + 1 - p )^{n-1} p\\
      &= np\\
 \end{align*}
