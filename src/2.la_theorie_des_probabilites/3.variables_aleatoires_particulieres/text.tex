@@ -38,7 +38,30 @@ La variable $V$ est appelée variable binomiale de paramètre $p$ et d'exposant 
 
 \paragraph{Calcul de la variance $D^2(B(n,p))$}
 \paragraph{Calcul de la fonction génératrice $\psi(t)$}
+$$\boxed{\psi_x(t) = E(e^{tx}}$$
+\begin{align*}
+\psi(t) &= \sum_{k=0}^n e^{tk} \left(\begin{array}{c}n\\k\end{array}\right) p^k (1-p)^{n-k}\\
+        &= \sum_{k=0}^n \left(\begin{array}{c}n\\k\end{array}\right) (e^tp)^k(1-p)^{n-k}\\
+        &= ((1-p)+e^tp)^n\\
+        &=(pe^t+(1-p))^n\\
+\end{align*}
+
+\paragraph{Calcul de la moyenne $E(B(n,p))$ via la fonction génératrice $\psi(t)$}
+$$\boxed{\psi_x(t) = (pe^t+(1-p))^n}$$
+\begin{align*}
+E(X) &= \psi_x(t)|_{t=0}\\
+     &= ( e^tp + (1-p))^n|_{t=0}\\
+     &= n ( e^tp + (1-p) )^{n-1}e^tp&\text{pour } t=0\\
+     &= n ( p + 1 - p )^{n-1} p\\
+     &= np\\
+\end{align*}
+
+\paragraph{Calcul de la variance $D^2(B(n,p))$ via la fonction génératrice $\psi(t)$}
+
+
 \paragraph{Calcul de la stabilité}
+
+
 
 \newpage
 \subsubsection{Variable de Poisson $\mathcal{P}_\lambda$}
